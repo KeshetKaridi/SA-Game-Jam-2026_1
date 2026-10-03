@@ -2,18 +2,35 @@
 
 [ext_resource type="Script" uid="uid://t7bjabqx5rw3" path="res://02. Scripts/Camera_Script_1.gd" id="1_45idv"]
 [ext_resource type="PackedScene" uid="uid://bbt4ce4ch6jpn" path="res://01. Scenes/NPCs/npc_2.tscn" id="2_45idv"]
+[ext_resource type="FontFile" uid="uid://c7ejvwii52gog" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/OpenType (.otf)/3DIsometric-Black.otf" id="2_eujqu"]
+[ext_resource type="Script" uid="uid://cofw7sywoopgu" path="res://addons/rich_text_3d/rich_text_3d.gd" id="2_qygcd"]
 [ext_resource type="PackedScene" uid="uid://t007qglvqxyv" path="res://01. Scenes/Caleb_Terrain Tests.tscn" id="3_0r0mg"]
 [ext_resource type="PackedScene" uid="uid://dmh35hpv1sjbn" path="res://01. Scenes/Player_Char_1.tscn" id="3_45idv"]
 [ext_resource type="PackedScene" uid="uid://uwc02fpor3q2" path="res://01. Scenes/NPCs/npc_1.tscn" id="3_rdpjm"]
 [ext_resource type="Environment" uid="uid://ccnmbtuh0ed3e" path="res://03. Assets/Environments/Env_2.tres" id="6_45idv"]
+[ext_resource type="PackedScene" uid="uid://dinbgrt2mpijt" path="res://01. Scenes/NPCs/Cat_1.tscn" id="7_rdpjm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tnskl"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh65y"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ut8mm"]
+lightmap_size_hint = Vector2i(5, 4)
+size = Vector2(5, 3)
+orientation = 2
+
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o6wit"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 1982.8
-dof_blur_far_transition = 5285.7
+dof_blur_far_distance = 54.42
+dof_blur_near_enabled = true
+dof_blur_near_distance = 46.09
+dof_blur_near_transition = 2.0
+dof_blur_amount = 0.01
 
 [sub_resource type="Gradient" id="Gradient_0r0mg"]
 interpolation_mode = 1
@@ -44,6 +61,45 @@ scaling_3d_scale = 0.3
 anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
 size = Vector2i(1920, 1080)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="SubViewport" unique_id=978658958]
+transform = Transform3D(-0.008566356, -0.98732305, 0.15849233, -0.053286072, 0.15872367, 0.9858841, -0.99854255, 9.326819e-10, -0.05397025, 0, 43.980656, 100.12934)
+light_color = Color(1, 0.13786113, 0.49102628, 1)
+light_size = 0.363
+shadow_enabled = true
+shadow_blur = 2.1
+area_range = 62.478
+area_attenuation = -0.287
+area_size = Vector2(11, 11)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=2027257588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.703354, 14.670643, 20.723755)
+light_energy = 0.289
+light_volumetric_fog_energy = 2.707
+light_angular_distance = 14.8
+light_specular = 3.062
+shadow_enabled = true
+shadow_transmittance_bias = 1.53
+shadow_blur = 3.667
+directional_shadow_mode = 0
+
+[node name="Cat_1" parent="SubViewport" unique_id=1848649770 instance=ExtResource("7_rdpjm")]
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, -20.57, 4.531, 51.161)
+
+[node name="Label3D" type="MeshInstance3D" parent="SubViewport/Cat_1" unique_id=1235294720]
+transform = Transform3D(1, 2.9802322e-08, 2.9802322e-08, -2.9802322e-08, 1, -8.881784e-16, -2.9802322e-08, 0, 1, -1.113, 3.117, 1.16)
+material_override = SubResource("StandardMaterial3D_hh65y")
+mesh = SubResource("PlaneMesh_ut8mm")
+script = ExtResource("2_qygcd")
+text = "[wave amp=122 freq=3]CAT[/wave]"
+font = ExtResource("2_eujqu")
+font_size = 222
+size = Vector2(5, 3)
+text_width = 940.0
+render_continuously = true
+unshaded = false
+billboard_mode = 1
+metadata/_custom_type_script = "uid://cofw7sywoopgu"
 
 [node name="NPC_1" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
 transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, -5.859413, 5.726349, 71.81868)
@@ -81,24 +137,3 @@ spot_angle_attenuation = 1.4142139
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=623589911]
 environment = ExtResource("6_45idv")
-
-[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=978658958]
-transform = Transform3D(-0.008566356, -0.98732305, 0.15849233, -0.053286072, 0.15872367, 0.9858841, -0.99854255, 9.326819e-10, -0.05397025, 0, 43.980656, 100.12934)
-light_color = Color(1, 0.13786113, 0.49102628, 1)
-light_size = 0.363
-shadow_enabled = true
-shadow_blur = 2.1
-area_range = 62.478
-area_attenuation = -0.287
-area_size = Vector2(11, 11)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2027257588]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.703354, 14.670643, 20.723755)
-light_energy = 0.289
-light_volumetric_fog_energy = 2.707
-light_angular_distance = 14.8
-light_specular = 3.062
-shadow_enabled = true
-shadow_transmittance_bias = 1.53
-shadow_blur = 3.667
-directional_shadow_mode = 0

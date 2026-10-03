@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5gbyecljcx4s"
-path.s3tc="res://.godot/imported/Tuxedo-Idle.png-7c8d8f70ec12573c8381bd1cffd31a81.s3tc.ctex"
+uid="uid://5elib47k5hr1"
+path.bptc="res://.godot/imported/qwantani_dusk_2_puresky_4k.hdr-d259049c68438379ad4071f1fec247a1.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://03. Assets/Sprites/Cats/TuxedoCat-Free-Carysaurus/Tuxedo-Idle.png"
-dest_files=["res://.godot/imported/Tuxedo-Idle.png-7c8d8f70ec12573c8381bd1cffd31a81.s3tc.ctex"]
+source_file="res://03. Assets/HDRi/qwantani_dusk_2_puresky_4k.hdr"
+dest_files=["res://.godot/imported/qwantani_dusk_2_puresky_4k.hdr-d259049c68438379ad4071f1fec247a1.bptc.ctex"]
 
 [params]
 

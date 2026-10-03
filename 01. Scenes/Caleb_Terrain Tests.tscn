@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://d2tq75jwde0di" path="res://03. Assets/Environments/city/GLB format/building-type-t.glb" id="14_g1sd6"]
 [ext_resource type="PackedScene" uid="uid://cb72go8asvj8a" path="res://03. Assets/Environments/city/GLB format/building-type-k.glb" id="15_mhe2i"]
 [ext_resource type="PackedScene" uid="uid://bdjqlsh8742m7" path="res://03. Assets/Environments/city/GLB format/building-type-q.glb" id="16_qm7pe"]
-[ext_resource type="PackedScene" uid="uid://cmkyqqbmcq5nk" path="res://03. Assets/Environments/city/GLB format/building-type-s.glb" id="17_m8ksw"]
 [ext_resource type="PackedScene" uid="uid://4xgqc121bs2b" path="res://03. Assets/Environments/more/GLB format/building-platform.glb" id="18_l0ynb"]
 [ext_resource type="PackedScene" uid="uid://bxmy6llr0hp0u" path="res://03. Assets/Environments/more/GLB format/flag.glb" id="19_exmta"]
 [ext_resource type="PackedScene" uid="uid://dy1oxcw8g2hy" path="res://03. Assets/Environments/more/GLB format/ladder.glb" id="20_82upy"]
@@ -138,6 +137,7 @@ terrain_system = NodePath("..")
 chunk_coords = Vector2i(-1, 0)
 
 [node name="GrassPlanter" type="MultiMeshInstance3D" parent="MarchingSquaresTerrain/Chunk (-1, 0)" unique_id=820892452]
+visible = false
 cast_shadow = 0
 script = ExtResource("5_s76mx")
 
@@ -149,6 +149,7 @@ size = 34.153
 
 [node name="GridMap3" type="GridMap" parent="." unique_id=1504052010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+visible = false
 mesh_library = ExtResource("6_3ok20")
 cell_size = Vector3(3.49, 4.09, 1)
 cell_scale = 5.17
@@ -158,6 +159,7 @@ data = {
 
 [node name="GridMap2" type="GridMap" parent="." unique_id=421442750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27, 0)
+visible = false
 mesh_library = ExtResource("6_3ok20")
 cell_size = Vector3(1, 1, 1)
 cell_scale = 6.28
@@ -211,9 +213,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.523102, 27.895784, 53.470
 
 [node name="building-type-q2" parent="." unique_id=1486890481 instance=ExtResource("16_qm7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.772968, 20.207623, 53.86819)
-
-[node name="building-type-s2" parent="." unique_id=1471714709 instance=ExtResource("17_m8ksw")]
-transform = Transform3D(3.38, 0, 0, 0, 3.38, 0, 0, 0, 3.38, -31.06909, 2.4048734, 85.838264)
 
 [node name="building-platform2" parent="." unique_id=1757414963 instance=ExtResource("18_l0ynb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.569298, 4.0505238, 39.578274)

@@ -1,9 +1,10 @@
 [gd_resource type="Environment" format=3 uid="uid://ccnmbtuh0ed3e"]
 
-[ext_resource type="Texture2D" uid="uid://bqbb85f5b78ty" path="res://03. Assets/HDRi/kloofendal_48d_partly_cloudy_puresky_4k.exr" id="1_aix0w"]
+[ext_resource type="Texture2D" uid="uid://5elib47k5hr1" path="res://03. Assets/HDRi/qwantani_dusk_2_puresky_4k.hdr" id="1_aix0w"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_aix0w"]
 panorama = ExtResource("1_aix0w")
+energy_multiplier = 0.3
 
 [sub_resource type="Sky" id="Sky_45idv"]
 sky_material = SubResource("PanoramaSkyMaterial_aix0w")
@@ -24,8 +25,9 @@ ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
-sdfgi_y_scale = 0
+sdfgi_min_cell_size = 0.09765625
 glow_enabled = true
+glow_normalized = true
 glow_intensity = 1.95
 glow_bloom = 0.53
 glow_blend_mode = 2

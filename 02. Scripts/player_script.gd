@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	### ANIMATIONS H Flipping
+	#print(direction)
+	
 	if Input.is_action_just_pressed("Left"):
 		Char_Sprite.flip_h = false
 		Char_Sprite.play("walk")
