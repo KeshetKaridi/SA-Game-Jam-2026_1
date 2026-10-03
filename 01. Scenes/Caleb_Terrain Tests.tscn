@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://t007qglvqxyv"]
 
 [ext_resource type="Shader" uid="uid://ckqsk30ofu7a8" path="res://03. Assets/Shaders/Anime_Sky_test.gdshader" id="1_6p4xb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_tnskl"]
-size = Vector3(11, 0.132, 11)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxmck"]
-albedo_color = Color(0.4841141, 0.6975576, 0.41998565, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_k70vq"]
-size = Vector3(14.406311, 0.13232422, 17.26654)
+[ext_resource type="Script" uid="uid://cddg1xr5hye1d" path="res://addons/MarchingSquaresTerrain/algorithm/terrain/marching_squares_terrain.gd" id="2_omf8y"]
+[ext_resource type="Resource" uid="uid://r6ss2ilkekoq" path="res://addons/MarchingSquaresTerrain/resources/texture_presets/example_flat_toon.tres" id="3_3ok20"]
+[ext_resource type="Script" uid="uid://cql4d8s5t5xcx" path="res://addons/MarchingSquaresTerrain/algorithm/terrain/marching_squares_terrain_chunk.gd" id="4_y3tf1"]
+[ext_resource type="Script" uid="uid://22l7ysgniux3" path="res://addons/MarchingSquaresTerrain/algorithm/grass/marching_squares_grass_planter.gd" id="5_s76mx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onn7j"]
 shader = ExtResource("1_6p4xb")
@@ -50,19 +45,86 @@ sky_material = SubResource("ShaderMaterial_onn7j")
 background_mode = 2
 sky = SubResource("Sky_qdken")
 
+[sub_resource type="Texture2D" id="Texture2D_x6ihp"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_sqiir"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_7rttv"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_0c4sw"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_xnls4"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_1acd1"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_yo82w"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_r4wdw"]
+resource_local_to_scene = false
+resource_name = ""
+
+[sub_resource type="Texture2D" id="Texture2D_j6ccx"]
+resource_local_to_scene = false
+resource_name = ""
+
 [node name="Terrain" type="Node3D" unique_id=1401252360]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=394988363]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4032288, -0.4338379, -5.691986)
-mesh = SubResource("BoxMesh_tnskl")
-surface_material_override/0 = SubResource("StandardMaterial3D_uxmck")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1191363178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4032288, -0.4338379, -5.691986)
-shape = SubResource("BoxShape3D_k70vq")
 
 [node name="OrthoCam" type="Camera3D" parent="." unique_id=1419699317]
 transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -28.339787, 23.235987, 18.106524)
 environment = SubResource("Environment_uxmck")
 projection = 1
 size = 9.411
+
+[node name="MarchingSquaresTerrain" type="Node3D" parent="." unique_id=2107531904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008794427, 0)
+script = ExtResource("2_omf8y")
+data_directory = "res://scenes/mst_demo_presets_TerrainData/MarchingSquaresTerrain_955a7df8"
+_storage_initialized = true
+texture_2 = null
+texture_3 = null
+texture_4 = null
+texture_5 = null
+texture_6 = null
+texture_7 = SubResource("Texture2D_x6ihp")
+texture_8 = SubResource("Texture2D_sqiir")
+texture_9 = SubResource("Texture2D_7rttv")
+texture_10 = SubResource("Texture2D_0c4sw")
+texture_11 = SubResource("Texture2D_xnls4")
+texture_12 = SubResource("Texture2D_1acd1")
+texture_13 = SubResource("Texture2D_yo82w")
+texture_14 = SubResource("Texture2D_r4wdw")
+texture_15 = SubResource("Texture2D_j6ccx")
+current_texture_preset = ExtResource("3_3ok20")
+metadata/_custom_type_script = "uid://cddg1xr5hye1d"
+
+[node name="Chunk (-1, 0)" type="MeshInstance3D" parent="MarchingSquaresTerrain" unique_id=1918248269 node_paths=PackedStringArray("terrain_system")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 0)
+script = ExtResource("4_y3tf1")
+terrain_system = NodePath("..")
+chunk_coords = Vector2i(-1, 0)
+
+[node name="GrassPlanter" type="MultiMeshInstance3D" parent="MarchingSquaresTerrain/Chunk (-1, 0)" unique_id=820892452]
+cast_shadow = 0
+script = ExtResource("5_s76mx")
+
+[node name="Chunk (0, 0)" type="MeshInstance3D" parent="MarchingSquaresTerrain" unique_id=562857827 node_paths=PackedStringArray("terrain_system")]
+script = ExtResource("4_y3tf1")
+terrain_system = NodePath("..")
+
+[node name="GrassPlanter" type="MultiMeshInstance3D" parent="MarchingSquaresTerrain/Chunk (0, 0)" unique_id=450714160]
+cast_shadow = 0
+script = ExtResource("5_s76mx")
