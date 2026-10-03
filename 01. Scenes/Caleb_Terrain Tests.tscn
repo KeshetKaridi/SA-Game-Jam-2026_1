@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://t007qglvqxyv"]
 
-[ext_resource type="Shader" uid="uid://ckqsk30ofu7a8" path="res://Anime_Sky_test.gdshader" id="1_k70vq"]
+[ext_resource type="Shader" uid="uid://ckqsk30ofu7a8" path="res://03. Assets/Shaders/Anime_Sky_test.gdshader" id="1_6p4xb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tnskl"]
 size = Vector3(11, 0.132, 11)
@@ -12,7 +12,7 @@ albedo_color = Color(0.4841141, 0.6975576, 0.41998565, 1)
 size = Vector3(14.406311, 0.13232422, 17.26654)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_onn7j"]
-shader = ExtResource("1_k70vq")
+shader = ExtResource("1_6p4xb")
 shader_parameter/back_color_top = Color(0.12, 0.4, 0.66, 1)
 shader_parameter/back_color_bottom = Color(0.34, 0.75, 0.92, 1)
 shader_parameter/sun_size = 0.001

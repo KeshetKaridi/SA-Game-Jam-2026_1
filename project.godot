@@ -13,12 +13,20 @@ config_version=5
 config/name="SA Game Jam 2026_1"
 run/main_scene="uid://dtu185r8xi13k"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://03. Assets/Icons/icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://01. Scenes/": "blue",
+"res://02. Scripts/": "purple",
+"res://03. Assets/": "pink"
+}
 
 [input]
 
