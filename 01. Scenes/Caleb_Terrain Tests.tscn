@@ -6,45 +6,6 @@
 [ext_resource type="Script" uid="uid://cql4d8s5t5xcx" path="res://addons/MarchingSquaresTerrain/algorithm/terrain/marching_squares_terrain_chunk.gd" id="4_y3tf1"]
 [ext_resource type="Script" uid="uid://22l7ysgniux3" path="res://addons/MarchingSquaresTerrain/algorithm/grass/marching_squares_grass_planter.gd" id="5_s76mx"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_onn7j"]
-shader = ExtResource("1_6p4xb")
-shader_parameter/back_color_top = Color(0.12, 0.4, 0.66, 1)
-shader_parameter/back_color_bottom = Color(0.34, 0.75, 0.92, 1)
-shader_parameter/sun_size = 0.001
-shader_parameter/sun_softness = 0.1
-shader_parameter/sun_glow_size = 0.2
-shader_parameter/sun_color = Color(1, 1, 1, 1)
-shader_parameter/sun_glow_color = Color(1, 1, 1, 0.15)
-shader_parameter/hor_height_min = 0.05
-shader_parameter/hor_height_max = 0.2
-shader_parameter/hor_color_mix = Color(1, 1, 1, 0.125)
-shader_parameter/hor_color_add = Color(1, 1, 1, 0.125)
-shader_parameter/cloud_hor_start = 0.25
-shader_parameter/cloud_hor_end = 0.5
-shader_parameter/cloud_hor_scale = Vector2(2, 2)
-shader_parameter/cloud_top_start = 0.6
-shader_parameter/cloud_top_end = 0.7
-shader_parameter/cloud_top_scale = 0.5
-shader_parameter/clouds_power = 3.0
-shader_parameter/cloud_transtion_start = 0.8
-shader_parameter/cloud_transtion_end = 0.9
-shader_parameter/cloud_color_bright = Color(1, 1, 1, 1)
-shader_parameter/cloud_color_dark = Color(0.8, 0.9, 1, 1)
-shader_parameter/cloud_color_edges_mix = Color(1, 1, 1, 1)
-shader_parameter/cloud_color_edges_add = Color(1, 1, 1, 1)
-shader_parameter/cloud_edges = 0.9
-shader_parameter/hor_speed = 0.1
-shader_parameter/hor_layer0_speed_mult = 0.05
-shader_parameter/hor_layer1_speed_mult = 0.1
-shader_parameter/top_speed = 0.05
-
-[sub_resource type="Sky" id="Sky_qdken"]
-sky_material = SubResource("ShaderMaterial_onn7j")
-
-[sub_resource type="Environment" id="Environment_uxmck"]
-background_mode = 2
-sky = SubResource("Sky_qdken")
-
 [sub_resource type="Texture2D" id="Texture2D_x6ihp"]
 resource_local_to_scene = false
 resource_name = ""
@@ -81,13 +42,55 @@ resource_name = ""
 resource_local_to_scene = false
 resource_name = ""
 
-[node name="Terrain" type="Node3D" unique_id=1401252360]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_omf8y"]
+shader = ExtResource("1_6p4xb")
+shader_parameter/back_color_top = Color(0.12, 0.4, 0.66, 1)
+shader_parameter/back_color_bottom = Color(0.34, 0.75, 0.92, 1)
+shader_parameter/sun_size = 0.001
+shader_parameter/sun_softness = 0.1
+shader_parameter/sun_glow_size = 0.2
+shader_parameter/sun_color = Color(1, 1, 1, 1)
+shader_parameter/sun_glow_color = Color(1, 1, 1, 0.15)
+shader_parameter/hor_height_min = 0.05
+shader_parameter/hor_height_max = 0.2
+shader_parameter/hor_color_mix = Color(1, 1, 1, 0.125)
+shader_parameter/hor_color_add = Color(1, 1, 1, 0.125)
+shader_parameter/cloud_hor_start = 0.25
+shader_parameter/cloud_hor_end = 0.5
+shader_parameter/cloud_hor_scale = Vector2(2, 2)
+shader_parameter/cloud_top_start = 0.6
+shader_parameter/cloud_top_end = 0.7
+shader_parameter/cloud_top_scale = 0.5
+shader_parameter/clouds_power = 3.0
+shader_parameter/cloud_transtion_start = 0.8
+shader_parameter/cloud_transtion_end = 0.9
+shader_parameter/cloud_color_bright = Color(1, 1, 1, 1)
+shader_parameter/cloud_color_dark = Color(0.8, 0.9, 1, 1)
+shader_parameter/cloud_color_edges_mix = Color(1, 1, 1, 1)
+shader_parameter/cloud_color_edges_add = Color(1, 1, 1, 1)
+shader_parameter/cloud_edges = 0.9
+shader_parameter/hor_speed = 0.1
+shader_parameter/hor_layer0_speed_mult = 0.05
+shader_parameter/hor_layer1_speed_mult = 0.1
+shader_parameter/top_speed = 0.05
 
-[node name="OrthoCam" type="Camera3D" parent="." unique_id=1419699317]
-transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -28.339787, 23.235987, 18.106524)
-environment = SubResource("Environment_uxmck")
-projection = 1
-size = 9.411
+[sub_resource type="Sky" id="Sky_qdken"]
+sky_material = SubResource("ShaderMaterial_omf8y")
+
+[sub_resource type="Environment" id="Environment_3ok20"]
+background_mode = 2
+sky = SubResource("Sky_qdken")
+
+[sub_resource type="BoxMesh" id="BoxMesh_omf8y"]
+size = Vector3(50, 0.22, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ok20"]
+albedo_color = Color(0.43331885, 0.528455, 0.6606744, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_omf8y"]
+size = Vector3(50, 0.22, 50)
+
+[node name="Terrain" type="Node3D" unique_id=1401252360]
 
 [node name="MarchingSquaresTerrain" type="Node3D" parent="." unique_id=2107531904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008794427, 0)
@@ -128,3 +131,19 @@ terrain_system = NodePath("..")
 [node name="GrassPlanter" type="MultiMeshInstance3D" parent="MarchingSquaresTerrain/Chunk (0, 0)" unique_id=450714160]
 cast_shadow = 0
 script = ExtResource("5_s76mx")
+
+[node name="OrthoCam" type="Camera3D" parent="." unique_id=966434200]
+transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -51.458744, 66.68516, 99.98582)
+environment = SubResource("Environment_3ok20")
+projection = 1
+size = 34.153
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=757892213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.065445, 1.3700943, 88.32197)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1936966451]
+mesh = SubResource("BoxMesh_omf8y")
+surface_material_override/0 = SubResource("StandardMaterial3D_3ok20")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=938123864]
+shape = SubResource("BoxShape3D_omf8y")
