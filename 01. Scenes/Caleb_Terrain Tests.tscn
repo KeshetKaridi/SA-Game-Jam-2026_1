@@ -17,6 +17,17 @@
 [ext_resource type="PackedScene" uid="uid://cb72go8asvj8a" path="res://03. Assets/Environments/city/GLB format/building-type-k.glb" id="15_mhe2i"]
 [ext_resource type="PackedScene" uid="uid://bdjqlsh8742m7" path="res://03. Assets/Environments/city/GLB format/building-type-q.glb" id="16_qm7pe"]
 [ext_resource type="PackedScene" uid="uid://cmkyqqbmcq5nk" path="res://03. Assets/Environments/city/GLB format/building-type-s.glb" id="17_m8ksw"]
+[ext_resource type="PackedScene" uid="uid://4xgqc121bs2b" path="res://03. Assets/Environments/more/GLB format/building-platform.glb" id="18_l0ynb"]
+[ext_resource type="PackedScene" uid="uid://bxmy6llr0hp0u" path="res://03. Assets/Environments/more/GLB format/flag.glb" id="19_exmta"]
+[ext_resource type="PackedScene" uid="uid://dy1oxcw8g2hy" path="res://03. Assets/Environments/more/GLB format/ladder.glb" id="20_82upy"]
+[ext_resource type="PackedScene" uid="uid://dk85jdiunvy2t" path="res://03. Assets/Environments/more/GLB format/tree-high.glb" id="21_lknmm"]
+[ext_resource type="PackedScene" uid="uid://brxs5ijajx41q" path="res://03. Assets/Environments/more/GLB format/tent.glb" id="22_gam58"]
+[ext_resource type="PackedScene" uid="uid://dgujgjvk3kr6r" path="res://03. Assets/Environments/road/light-curved-cross.glb" id="23_82upy"]
+[ext_resource type="PackedScene" uid="uid://c6642b4h2jgop" path="res://03. Assets/Environments/road/light-curved-double.glb" id="24_lknmm"]
+[ext_resource type="PackedScene" uid="uid://7x7gqlkcndf7" path="res://03. Assets/Environments/road/light-square.glb" id="25_gam58"]
+[ext_resource type="PackedScene" uid="uid://dyfju720jc407" path="res://03. Assets/Environments/road/light-square-double.glb" id="26_svtf3"]
+[ext_resource type="PackedScene" uid="uid://bi58t63t8nc57" path="res://03. Assets/Environments/road/light-curved.glb" id="27_tooua"]
+[ext_resource type="PackedScene" uid="uid://dhg7j3t40wp1t" path="res://03. Assets/Environments/road/road-bend-barrier.glb" id="28_w4lnk"]
 
 [sub_resource type="Texture2D" id="Texture2D_x6ihp"]
 resource_local_to_scene = false
@@ -200,3 +211,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.772968, 20.207623, 53.868
 
 [node name="building-type-s2" parent="." unique_id=1471714709 instance=ExtResource("17_m8ksw")]
 transform = Transform3D(3.38, 0, 0, 0, 3.38, 0, 0, 0, 3.38, -31.06909, 2.4048734, 85.838264)
+
+[node name="building-platform2" parent="." unique_id=1757414963 instance=ExtResource("18_l0ynb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.569298, 4.0505238, 39.578274)
+
+[node name="flag2" parent="." unique_id=139992199 instance=ExtResource("19_exmta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.491844, 8.600336, 37.14723)
+
+[node name="ladder2" parent="." unique_id=1591266707 instance=ExtResource("20_82upy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.42306, 7.564329, 37.724545)
+
+[node name="ladder3" parent="." unique_id=1044319592 instance=ExtResource("20_82upy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.348345, 6.347468, 37.448368)
+
+[node name="ladder4" parent="." unique_id=1078883188 instance=ExtResource("20_82upy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.407585, 6.1400676, 37.32994)
+
+[node name="tree-high2" parent="." unique_id=1125325621 instance=ExtResource("21_lknmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.113884, 6.7094054, 40.29742)
+
+[node name="tree-high3" parent="." unique_id=837093088 instance=ExtResource("21_lknmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.443787, 2.530724, 32.983986)
+
+[node name="tree-high4" parent="." unique_id=177279871 instance=ExtResource("21_lknmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.265465, 2.530303, 19.92397)
+
+[node name="tree-high5" parent="." unique_id=2079215261 instance=ExtResource("21_lknmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.754505, 7.435453, 38.67463)
+
+[node name="tent2" parent="." unique_id=665249040 instance=ExtResource("22_gam58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.249071, 2.5361128, 47.504642)
+
+[node name="tent3" parent="." unique_id=267838341 instance=ExtResource("22_gam58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.271996, 5.285084, 41.550785)
+
+[node name="light-curved-cross2" parent="." unique_id=978524370 instance=ExtResource("23_82upy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.230152, 2.530264, 78.27463)
+
+[node name="light-curved-double2" parent="." unique_id=819336141 instance=ExtResource("24_lknmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.859657, 3.0603237, 76.319336)
+
+[node name="light-square2" parent="." unique_id=1500680950 instance=ExtResource("25_gam58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.87638, 3.948247, 73.40175)
+
+[node name="light-square-double2" parent="." unique_id=1740131898 instance=ExtResource("26_svtf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.38, 4.368967, 70.80477)
+
+[node name="light-curved2" parent="." unique_id=934843839 instance=ExtResource("27_tooua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.159527, 3.5277197, 68.45869)
+
+[node name="road-bend-barrier2" parent="." unique_id=767425146 instance=ExtResource("28_w4lnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.39178, 2.934896, 70.511444)
+
+[node name="flag3" parent="." unique_id=1647552962 instance=ExtResource("19_exmta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.58347, 4.3689675, 70.26259)
