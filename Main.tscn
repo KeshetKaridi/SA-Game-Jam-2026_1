@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtu185r8xi13k"]
 
 [ext_resource type="Script" uid="uid://6csbttpjv4eo" path="res://player_script.gd" id="1_glv2v"]
+[ext_resource type="Texture2D" uid="uid://bttms43jrjdyd" path="res://jump spritesheet.png" id="2_uu6xs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_onn7j"]
 sky_top_color = Color(0.23067471, 0.44348675, 0.7646271, 1)
@@ -35,6 +36,56 @@ volumetric_fog_emission = Color(0.353442, 0.2195012, 0.21431455, 1)
 volumetric_fog_emission_energy = 0.3
 volumetric_fog_length = 12.09
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0du0"]
+atlas = ExtResource("2_uu6xs")
+region = Rect2(0, 0, 540, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm0pq"]
+atlas = ExtResource("2_uu6xs")
+region = Rect2(540, 0, 540, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fos0i"]
+atlas = ExtResource("2_uu6xs")
+region = Rect2(1080, 0, 540, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dxm6"]
+atlas = ExtResource("2_uu6xs")
+region = Rect2(1620, 0, 540, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgr22"]
+atlas = ExtResource("2_uu6xs")
+region = Rect2(2160, 0, 540, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trn2v"]
+atlas = ExtResource("2_uu6xs")
+region = Rect2(2700, 0, 540, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnskl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0du0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm0pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fos0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dxm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgr22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trn2v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdken"]
 albedo_color = Color(0.42383775, 0.7529358, 0.9085095, 1)
 
@@ -52,25 +103,40 @@ albedo_color = Color(0.5045207, 0.61449194, 0.34359285, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tnskl"]
 material = SubResource("StandardMaterial3D_uxmck")
-size = Vector3(12.003418, 0.089, 19.468262)
+size = Vector3(10, 1, 10)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rxg2q"]
-size = Vector3(12.003418, 0.089, 19.468262)
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
+size = Vector3(10, 1, 10)
 
 [node name="Node3D" type="Node3D" unique_id=815362948]
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1238377662]
+transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -8.81573, 10.56934, 13.06421)
+environment = SubResource("Environment_uxmck")
+projection = 1
+fov = 90.0
+size = 5.953
+near = 0.001
+
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1216026225]
-transform = Transform3D(0.04023784, 0.27156478, -0.9615787, -0.011353855, 0.96242017, 0.27132738, 0.99912566, -1.862643e-09, 0.04180902, 2.3225458, 0.9778911, 1.074142)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3833957, 0.71291256, 1.0647817)
 script = ExtResource("1_glv2v")
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1238377662]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.7071067, 0, -0.70710677, 0.7071067, -0.2, 1.03, 1.07)
-environment = SubResource("Environment_uxmck")
-fov = 90.0
-size = 3.0
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player" unique_id=205635628]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, -0.100000024, 0)
+flip_h = true
+pixel_size = 0.001
+billboard = 2
+shaded = true
+double_sided = false
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_tnskl")
+frame = 3
+frame_progress = 0.33249912
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Player" unique_id=767475961]
 transform = Transform3D(1, 9.329534e-10, 0, 9.329514e-10, 1, -2.9880198e-08, 0, -7.787526e-11, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_tnskl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1715556023]
@@ -82,10 +148,12 @@ debug_color = Color(0.88235295, 0.3372549, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592983, 0.4553833, 5.3194084)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=489500742]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
 mesh = SubResource("BoxMesh_tnskl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=72921827]
-shape = SubResource("BoxShape3D_rxg2q")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor" unique_id=1662179012]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
+shape = SubResource("BoxShape3D_uu6xs")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=661075415]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.217815, 1.4385684, 1.1588962)
