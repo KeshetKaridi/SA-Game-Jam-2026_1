@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 11
+@onready var Char_Sprite: Sprite3D = $Sprite3D
+
+const SPEED = 11
+const JUMP_VELOCITY = 7
 
 
 func _physics_process(delta: float) -> void:
@@ -11,13 +13,22 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the -35.3ºmovement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Up", "Down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	### ANIMATIONS H Flipping
+	if Input.is_action_just_pressed("Left"):
+		Char_Sprite.flip_h = false
+
+	if Input.is_action_just_pressed("Right"):
+		Char_Sprite.flip_h = true
+		
+		
+		
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED

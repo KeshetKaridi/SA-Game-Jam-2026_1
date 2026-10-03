@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://dtu185r8xi13k"]
 
 [ext_resource type="Shader" uid="uid://ckqsk30ofu7a8" path="res://03. Assets/Shaders/Anime_Sky_test.gdshader" id="1_0r0mg"]
+[ext_resource type="Script" uid="uid://t7bjabqx5rw3" path="res://02. Scripts/Camera_Script_1.gd" id="1_45idv"]
 [ext_resource type="Script" uid="uid://6csbttpjv4eo" path="res://02. Scripts/player_script.gd" id="1_mjwvt"]
-[ext_resource type="Texture2D" uid="uid://bttms43jrjdyd" path="res://03. Assets/Sprites/jump spritesheet.png" id="2_gg4ti"]
 [ext_resource type="PackedScene" uid="uid://t007qglvqxyv" path="res://01. Scenes/Caleb_Terrain Tests.tscn" id="3_0r0mg"]
+[ext_resource type="Texture2D" uid="uid://bfbvpfnhhs5ik" path="res://03. Assets/NPCs/Placeholders_1/NPC_1.png" id="3_rdpjm"]
 [ext_resource type="Environment" uid="uid://cavrxg70nu8fl" path="res://03. Assets/Environments/Env_1.tres" id="4_gg4ti"]
+[ext_resource type="Texture2D" uid="uid://c2tprjmc1lcrs" path="res://03. Assets/NPCs/Placeholders_1/NPC_2.png" id="5_eujqu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tnskl"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_45idv"]
 shader = ExtResource("1_0r0mg")
@@ -45,70 +50,17 @@ sky_material = SubResource("ShaderMaterial_45idv")
 background_mode = 2
 sky = SubResource("Sky_0r0mg")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_uxmck"]
-radius = 0.101
-height = 0.4
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_rdpjm"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 104.83
+dof_blur_far_transition = -1.0
+dof_blur_near_distance = 413.84
+dof_blur_near_transition = 1512.92
+dof_blur_amount = 0.37
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
-radius = 0.101
-height = 0.4
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
-size = Vector3(0.365, 0.24, 0.485)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0du0"]
-atlas = ExtResource("2_gg4ti")
-region = Rect2(0, 0, 540, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cm0pq"]
-atlas = ExtResource("2_gg4ti")
-region = Rect2(540, 0, 540, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fos0i"]
-atlas = ExtResource("2_gg4ti")
-region = Rect2(1080, 0, 540, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3dxm6"]
-atlas = ExtResource("2_gg4ti")
-region = Rect2(1620, 0, 540, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lgr22"]
-atlas = ExtResource("2_gg4ti")
-region = Rect2(2160, 0, 540, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trn2v"]
-atlas = ExtResource("2_gg4ti")
-region = Rect2(2700, 0, 540, 540)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tnskl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r0du0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cm0pq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fos0i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3dxm6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lgr22")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trn2v")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tnskl"]
-radius = 0.18164063
-height = 0.37304688
+radius = 5.939
+height = 46.902
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxmck"]
 albedo_color = Color(0.5045207, 0.61449194, 0.34359285, 1)
@@ -133,86 +85,100 @@ fill_from = Vector2(0.525641, 0.491453)
 
 [node name="Node3D" type="Node3D" unique_id=815362948]
 
-[node name="OrthoCam" type="Camera3D" parent="." unique_id=773090554]
-transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -32.2579, 66.16119, 101.1323)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=663941492]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_tnskl")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1454758230]
+use_debanding = true
+use_occlusion_culling = true
+scaling_3d_mode = 5
+scaling_3d_scale = 0.4
+anisotropic_filtering_level = 0
+canvas_item_default_texture_filter = 0
+size = Vector2i(1920, 1080)
+
+[node name="Cam_Rig" type="Node3D" parent="SubViewport" unique_id=605566289]
+transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -41.025963, 66.16119, 101.53185)
+script = ExtResource("1_45idv")
+
+[node name="OrthoCam" type="Camera3D" parent="SubViewport/Cam_Rig" unique_id=773090554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 2.9802322e-08, 1, 0, 0, 0)
 environment = SubResource("Environment_rdpjm")
+attributes = SubResource("CameraAttributesPractical_rdpjm")
 projection = 1
+fov = 1.7187443
 size = 44.103
 
-[node name="enemy1" type="CharacterBody3D" parent="." unique_id=696997839]
-transform = Transform3D(1, 0, 2.9802322e-08, 2.9802322e-08, 1, -2.9802322e-08, 2.9802322e-08, 0, 1, 61.8158, -7.6527176, 62.86968)
+[node name="enemy1" type="CharacterBody3D" parent="SubViewport" unique_id=696997839]
+transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 16.752022, 4.197937, 62.86968)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy1" unique_id=1947077035]
+[node name="Sprite3D" type="Sprite3D" parent="SubViewport/enemy1" unique_id=938422712]
 transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_uxmck")
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("3_rdpjm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy1" unique_id=152897743]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/enemy1" unique_id=152897743]
 transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_r0du0")
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="enemy1" unique_id=1939055066]
-transform = Transform3D(0.40152818, 4.5130207e-08, 0.91584665, -9.458505e-09, 1, -4.5130204e-08, -0.91584665, 9.458507e-09, 0.40152818, 0, 0, 0)
-shape = SubResource("BoxShape3D_tnskl")
-target_position = Vector3(-0.01, 0.055, 0.275)
-margin = 2.49
-
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1216026225]
-transform = Transform3D(24.505, 0, 0, 0, 24.505, 0, 0, 0, 24.505, 48.920986, 2.9217472, 54.01087)
+[node name="Player" type="CharacterBody3D" parent="SubViewport" unique_id=1216026225]
+transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 7.897911, 4.197937, 62.86968)
 script = ExtResource("1_mjwvt")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player" unique_id=205635628]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0.01759857, 0)
-flip_h = true
-pixel_size = 0.0004
+[node name="Sprite3D" type="Sprite3D" parent="SubViewport/Player" unique_id=1467741677]
+transform = Transform3D(0.99999994, -2.6469778e-23, 0, -2.6469778e-23, 0.99999994, 0, 0, 0, 0.99999994, 0, 6.666666, 0)
 billboard = 2
 shaded = true
-double_sided = false
-alpha_cut = 2
-sprite_frames = SubResource("SpriteFrames_tnskl")
-frame = 3
-frame_progress = 0.33249912
+texture_filter = 0
+texture = ExtResource("5_eujqu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1715556023]
-transform = Transform3D(1, 1.4571185e-07, 0, 1.490279e-08, 1, -1.4908949e-07, -2.6077032e-08, 5.9804846e-09, 1, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_tnskl")
-debug_color = Color(0.88235295, 0.3372549, 0, 1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Player" unique_id=1715556023]
+transform = Transform3D(1, -8.881784e-16, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_r0du0")
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=94546120]
+[node name="Floor" type="StaticBody3D" parent="SubViewport" unique_id=94546120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592983, 0.4553833, 5.3194084)
 visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=489500742]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Floor" unique_id=489500742]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
 visible = false
 mesh = SubResource("BoxMesh_tnskl")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor" unique_id=1662179012]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewport/Floor" unique_id=1662179012]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
 visible = false
 shape = SubResource("BoxShape3D_uu6xs")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=661075415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.77267, 1.7555907, 55.8396)
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport" unique_id=661075415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.616533, 5.190131, 65.16397)
 light_energy = 1.56
 shadow_enabled = true
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=278258355]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewport" unique_id=278258355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.035976, 1.5952709, 61.519356)
 light_color = Color(0.8971607, 0.6718346, 0.8803701, 1)
 light_energy = 4.262
 shadow_enabled = true
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1323034488]
+[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewport" unique_id=1323034488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.967236, 2.412667, 54.02764)
 light_color = Color(0.32308525, 0.7745309, 0.8098867, 1)
 light_energy = 4.262
 light_volumetric_fog_energy = 3.773
 shadow_enabled = true
 
-[node name="Terrain" parent="." unique_id=1401252360 instance=ExtResource("3_0r0mg")]
+[node name="Terrain" parent="SubViewport" unique_id=1401252360 instance=ExtResource("3_0r0mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1290293, 0.4553833, 6.9128237)
 
-[node name="DirectionalLight3D" type="SpotLight3D" parent="." unique_id=179585445]
+[node name="DirectionalLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
 transform = Transform3D(1, 0, 0, 0, -0.093632475, 0.99560684, 0, -0.99560684, -0.093632475, 49.670338, 26.247189, 57.24933)
 light_projector = SubResource("GradientTexture2D_0r0mg")
 light_size = 0.059
@@ -221,5 +187,5 @@ spot_range = 40.325
 spot_attenuation = -0.7
 spot_angle = 27.77
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623589911]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=623589911]
 environment = ExtResource("4_gg4ti")
