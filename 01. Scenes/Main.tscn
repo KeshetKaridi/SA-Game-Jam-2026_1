@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://6csbttpjv4eo" path="res://02. Scripts/player_script.gd" id="1_mjwvt"]
 [ext_resource type="Texture2D" uid="uid://bttms43jrjdyd" path="res://03. Assets/Sprites/jump spritesheet.png" id="2_gg4ti"]
 [ext_resource type="PackedScene" uid="uid://t007qglvqxyv" path="res://01. Scenes/Caleb_Terrain Tests.tscn" id="3_0r0mg"]
+[ext_resource type="Environment" uid="uid://cavrxg70nu8fl" path="res://03. Assets/Environments/Env_1.tres" id="4_gg4ti"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tnskl"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uxmck"]
 radius = 0.101
@@ -14,39 +18,6 @@ height = 0.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
 size = Vector3(0.365, 0.24, 0.485)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_onn7j"]
-sky_top_color = Color(0.23067471, 0.44348675, 0.7646271, 1)
-sky_horizon_color = Color(0.7120611, 0.6310017, 0.6483358, 1)
-sky_curve = 0.22735746
-ground_bottom_color = Color(0.029405085, 0.19693094, 0.23516575, 1)
-ground_horizon_color = Color(0.75783527, 0.61728036, 0.5909042, 1)
-ground_curve = 0.013195056
-energy_multiplier = 1.5
-
-[sub_resource type="Sky" id="Sky_r0du0"]
-sky_material = SubResource("ProceduralSkyMaterial_onn7j")
-
-[sub_resource type="Environment" id="Environment_uxmck"]
-background_mode = 2
-sky = SubResource("Sky_r0du0")
-sky_rotation = Vector3(0, 0, -0.28274333)
-ambient_light_source = 3
-ambient_light_color = Color(0.82688326, 0.8925445, 0.9481841, 1)
-tonemap_mode = 4
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_use_occlusion = true
-fog_light_energy = 0.78
-fog_sun_scatter = 0.11
-fog_density = 0.1252
-fog_aerial_perspective = 0.06
-fog_sky_affect = 0.217
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.027
-volumetric_fog_emission = Color(0.353442, 0.2195012, 0.21431455, 1)
-volumetric_fog_emission_energy = 0.3
-volumetric_fog_length = 12.09
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0du0"]
 atlas = ExtResource("2_gg4ti")
@@ -114,37 +85,42 @@ size = Vector3(10, 1, 10)
 
 [node name="Node3D" type="Node3D" unique_id=815362948]
 
-[node name="enemy1" type="CharacterBody3D" parent="." unique_id=696997839]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1005678844]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_tnskl")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1778247379]
+own_world_3d = true
+use_hdr_2d = true
+size = Vector2i(640, 360)
+
+[node name="enemy1" type="CharacterBody3D" parent="SubViewport" unique_id=696997839]
 transform = Transform3D(1, 0, 2.9802322e-08, 2.9802322e-08, 1, -2.9802322e-08, 2.9802322e-08, 0, 1, 4.8157988, 0.34728277, 0.869678)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy1" unique_id=1947077035]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/enemy1" unique_id=1947077035]
 transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_uxmck")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy1" unique_id=152897743]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/enemy1" unique_id=152897743]
 transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_r0du0")
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="enemy1" unique_id=1939055066]
+[node name="ShapeCast3D" type="ShapeCast3D" parent="SubViewport/enemy1" unique_id=1939055066]
 transform = Transform3D(0.40152818, 4.5130207e-08, 0.91584665, -9.458505e-09, 1, -4.5130204e-08, -0.91584665, 9.458507e-09, 0.40152818, 0, 0, 0)
 shape = SubResource("BoxShape3D_tnskl")
 target_position = Vector3(-0.01, 0.055, 0.275)
 margin = 2.49
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1238377662]
-transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -8.81573, 10.56934, 13.06421)
-environment = SubResource("Environment_uxmck")
-projection = 1
-fov = 90.0
-size = 5.953
-near = 0.001
-
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1216026225]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30798912, 0.6885519, 0.63034487)
+[node name="Player" type="CharacterBody3D" parent="SubViewport" unique_id=1216026225]
+transform = Transform3D(2.435, 0, 0, 0, 2.435, 0, 0, 0, 2.435, -0.30798912, 0.5713744, 0.63034487)
 script = ExtResource("1_mjwvt")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player" unique_id=205635628]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="SubViewport/Player" unique_id=205635628]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, -0.10293208, 0)
 flip_h = true
 pixel_size = 0.001
 billboard = 2
@@ -155,42 +131,52 @@ sprite_frames = SubResource("SpriteFrames_tnskl")
 frame = 3
 frame_progress = 0.33249912
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1715556023]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Player" unique_id=1715556023]
 transform = Transform3D(1, 1.4571185e-07, 0, 1.490279e-08, 1, -1.4908949e-07, -2.6077032e-08, 5.9804846e-09, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_tnskl")
 debug_color = Color(0.88235295, 0.3372549, 0, 1)
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=94546120]
+[node name="Floor" type="StaticBody3D" parent="SubViewport" unique_id=94546120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592983, 0.4553833, 5.3194084)
 visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=489500742]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Floor" unique_id=489500742]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
 visible = false
 mesh = SubResource("BoxMesh_tnskl")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor" unique_id=1662179012]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewport/Floor" unique_id=1662179012]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
 visible = false
 shape = SubResource("BoxShape3D_uu6xs")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=661075415]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport" unique_id=661075415]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.217815, 1.4385684, 1.1588962)
 light_energy = 1.56
 shadow_enabled = true
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=278258355]
+[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewport" unique_id=278258355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5188775, 1.2782485, 6.8386545)
 light_color = Color(0.8971607, 0.6718346, 0.8803701, 1)
 light_energy = 4.262
 shadow_enabled = true
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1323034488]
+[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewport" unique_id=1323034488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.587619, 2.0956447, -0.65305996)
 light_color = Color(0.32308525, 0.7745309, 0.8098867, 1)
 light_energy = 4.262
 light_volumetric_fog_energy = 3.773
 shadow_enabled = true
 
-[node name="Terrain" parent="." unique_id=1401252360 instance=ExtResource("3_0r0mg")]
+[node name="Terrain" parent="SubViewport" unique_id=1401252360 instance=ExtResource("3_0r0mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1290293, 0.4553833, 6.9128237)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1238377662]
+transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -8.816, 11.644, 12.844)
+projection = 1
+fov = 90.0
+size = 10.042
+near = 0.001
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=623589911]
+environment = ExtResource("4_gg4ti")

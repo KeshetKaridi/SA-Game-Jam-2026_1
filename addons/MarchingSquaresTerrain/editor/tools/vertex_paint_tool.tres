@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brkjbcthwswel" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_tool.gd" id="1_7okwl"]
 [ext_resource type="Script" uid="uid://b6jopat61dbd3" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_tool_attribute_settings.gd" id="1_rbatu"]
-[ext_resource type="Texture2D" uid="uid://cu6t5cvhv7xu2" path="res://addons/MarchingSquaresTerrain/editor/icons/vertex_paint_tool.svg" id="2_rbatu"]
+[ext_resource type="Texture2D" uid="uid://c3b5pjfl1dn1k" path="res://addons/MarchingSquaresTerrain/editor/icons/vertex_paint_tool.svg" id="2_rbatu"]
 
 [sub_resource type="Resource" id="Resource_2cita"]
 script = ExtResource("1_rbatu")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MarchingSquaresTool" format=3 uid="uid://ktb4desoyt1j"]
 
 [ext_resource type="Script" uid="uid://b6jopat61dbd3" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_tool_attribute_settings.gd" id="1_74ofp"]
-[ext_resource type="Texture2D" uid="uid://dlrt4b1epeb27" path="res://addons/MarchingSquaresTerrain/editor/icons/toolicon.svg" id="1_caa87"]
+[ext_resource type="Texture2D" uid="uid://b0dphglel57ak" path="res://addons/MarchingSquaresTerrain/editor/icons/toolicon.svg" id="1_caa87"]
 [ext_resource type="Script" uid="uid://brkjbcthwswel" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_tool.gd" id="2_74ofp"]
 
 [sub_resource type="Resource" id="Resource_2gp4f"]

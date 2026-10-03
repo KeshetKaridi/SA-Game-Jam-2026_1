@@ -4,7 +4,7 @@ class_name MarchingSquaresTextureList
 
 
 const GRASS_TEXTURE : Texture2D = preload("uid://dbnc04k3n0sro")
-const GRASS_SPRITE : Texture2D = preload("uid://cnyafiyrg3amh")
+const GRASS_SPRITE : Texture2D = preload("uid://cxvnfgy865wsk")
 
 @export var terrain_textures : Array[Texture2D] = [
 	GRASS_TEXTURE, GRASS_TEXTURE, GRASS_TEXTURE, GRASS_TEXTURE,
