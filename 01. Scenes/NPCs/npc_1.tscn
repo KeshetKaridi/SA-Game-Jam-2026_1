@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://uwc02fpor3q2"]
+
+[ext_resource type="Texture2D" uid="uid://cahatf1hwavdw" path="res://03. Assets/Sprites/NPCs/Batch1/NPC_3.png" id="1_saxhr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
+radius = 1.5209961
+height = 13.477069
+
+[node name="NPC_1" type="CharacterBody3D" unique_id=1171066410]
+transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=230411016]
+transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_saxhr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1361817643]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, 1.4788378e-25, -0.0055868914, 0)
+shape = SubResource("CapsuleShape3D_r0du0")
