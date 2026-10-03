@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dmh35hpv1sjbn"]
+
+[ext_resource type="Script" uid="uid://6csbttpjv4eo" path="res://02. Scripts/player_script.gd" id="1_wv7rr"]
+[ext_resource type="Texture2D" uid="uid://cd5swx5lt856y" path="res://03. Assets/Sprites/PlayerCharacter/V1/PlayterCharacter_Frame4.png" id="2_8i3cd"]
+[ext_resource type="Texture2D" uid="uid://cn2sg4caoog7v" path="res://03. Assets/Sprites/PlayerCharacter/V1/PlayterCharacter_Frame0.png" id="2_u1m01"]
+[ext_resource type="Texture2D" uid="uid://cdu1qwr74pyta" path="res://03. Assets/Sprites/PlayerCharacter/V1/PlayterCharacter_Frame1.png" id="2_wv7rr"]
+[ext_resource type="Texture2D" uid="uid://dsu151wcyeis3" path="res://03. Assets/Sprites/PlayerCharacter/V1/PlayterCharacter_Frame2.png" id="4_8i3cd"]
+[ext_resource type="Texture2D" uid="uid://dwudmmbtnqkdi" path="res://03. Assets/Sprites/PlayerCharacter/V1/PlayterCharacter_Frame3.png" id="5_46h7w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnskl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8i3cd")
+}],
+"loop": 1,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u1m01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wv7rr")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8i3cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_46h7w")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
+radius = 2.996582
+height = 14.162756
+
+[node name="Player" type="CharacterBody3D" unique_id=197177369]
+transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 0, 0, 0)
+script = ExtResource("1_wv7rr")
+
+[node name="Player_AnimSprite" type="AnimatedSprite3D" parent="." unique_id=1520273345]
+transform = Transform3D(0.99999994, -2.6469778e-23, 0, -2.6469778e-23, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_tnskl")
+animation = &"back"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1912880881]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, 1.09127626e-23, -0.4122725, 0)
+shape = SubResource("CapsuleShape3D_r0du0")

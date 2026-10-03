@@ -1,66 +1,19 @@
 [gd_scene format=3 uid="uid://dtu185r8xi13k"]
 
-[ext_resource type="Shader" uid="uid://ckqsk30ofu7a8" path="res://03. Assets/Shaders/Anime_Sky_test.gdshader" id="1_0r0mg"]
 [ext_resource type="Script" uid="uid://t7bjabqx5rw3" path="res://02. Scripts/Camera_Script_1.gd" id="1_45idv"]
-[ext_resource type="Script" uid="uid://6csbttpjv4eo" path="res://02. Scripts/player_script.gd" id="1_mjwvt"]
+[ext_resource type="PackedScene" uid="uid://bbt4ce4ch6jpn" path="res://01. Scenes/NPCs/npc_2.tscn" id="2_45idv"]
 [ext_resource type="PackedScene" uid="uid://t007qglvqxyv" path="res://01. Scenes/Caleb_Terrain Tests.tscn" id="3_0r0mg"]
-[ext_resource type="Texture2D" uid="uid://bfbvpfnhhs5ik" path="res://03. Assets/NPCs/Placeholders_1/NPC_1.png" id="3_rdpjm"]
-[ext_resource type="Environment" uid="uid://cavrxg70nu8fl" path="res://03. Assets/Environments/Env_1.tres" id="4_gg4ti"]
-[ext_resource type="Texture2D" uid="uid://c2tprjmc1lcrs" path="res://03. Assets/NPCs/Placeholders_1/NPC_2.png" id="5_eujqu"]
+[ext_resource type="PackedScene" uid="uid://dmh35hpv1sjbn" path="res://01. Scenes/Player_Char_1.tscn" id="3_45idv"]
+[ext_resource type="PackedScene" uid="uid://uwc02fpor3q2" path="res://01. Scenes/NPCs/npc_1.tscn" id="3_rdpjm"]
+[ext_resource type="Environment" uid="uid://ccnmbtuh0ed3e" path="res://03. Assets/Environments/Env_2.tres" id="6_45idv"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tnskl"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_45idv"]
-shader = ExtResource("1_0r0mg")
-shader_parameter/back_color_top = Color(0.12, 0.4, 0.66, 1)
-shader_parameter/back_color_bottom = Color(0.34, 0.75, 0.92, 1)
-shader_parameter/sun_size = 0.001
-shader_parameter/sun_softness = 0.1
-shader_parameter/sun_glow_size = 0.2
-shader_parameter/sun_color = Color(1, 1, 1, 1)
-shader_parameter/sun_glow_color = Color(1, 1, 1, 0.15)
-shader_parameter/hor_height_min = 0.05
-shader_parameter/hor_height_max = 0.2
-shader_parameter/hor_color_mix = Color(1, 1, 1, 0.125)
-shader_parameter/hor_color_add = Color(1, 1, 1, 0.125)
-shader_parameter/cloud_hor_start = 0.25
-shader_parameter/cloud_hor_end = 0.5
-shader_parameter/cloud_hor_scale = Vector2(2, 2)
-shader_parameter/cloud_top_start = 0.6
-shader_parameter/cloud_top_end = 0.7
-shader_parameter/cloud_top_scale = 0.5
-shader_parameter/clouds_power = 3.0
-shader_parameter/cloud_transtion_start = 0.8
-shader_parameter/cloud_transtion_end = 0.9
-shader_parameter/cloud_color_bright = Color(1, 1, 1, 1)
-shader_parameter/cloud_color_dark = Color(0.8, 0.9, 1, 1)
-shader_parameter/cloud_color_edges_mix = Color(1, 1, 1, 1)
-shader_parameter/cloud_color_edges_add = Color(1, 1, 1, 1)
-shader_parameter/cloud_edges = 0.9
-shader_parameter/hor_speed = 0.1
-shader_parameter/hor_layer0_speed_mult = 0.05
-shader_parameter/hor_layer1_speed_mult = 0.1
-shader_parameter/top_speed = 0.05
-
-[sub_resource type="Sky" id="Sky_0r0mg"]
-sky_material = SubResource("ShaderMaterial_45idv")
-
-[sub_resource type="Environment" id="Environment_rdpjm"]
-background_mode = 2
-sky = SubResource("Sky_0r0mg")
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_rdpjm"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o6wit"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 104.83
-dof_blur_far_transition = -1.0
-dof_blur_near_distance = 413.84
-dof_blur_near_transition = 1512.92
-dof_blur_amount = 0.37
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
-radius = 5.939
-height = 46.902
+dof_blur_far_distance = 1982.8
+dof_blur_far_transition = 5285.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxmck"]
 albedo_color = Color(0.5045207, 0.61449194, 0.34359285, 1)
@@ -97,51 +50,31 @@ texture = SubResource("ViewportTexture_tnskl")
 use_debanding = true
 use_occlusion_culling = true
 scaling_3d_mode = 5
-scaling_3d_scale = 0.4
+scaling_3d_scale = 0.3
 anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
 size = Vector2i(1920, 1080)
 
-[node name="Cam_Rig" type="Node3D" parent="SubViewport" unique_id=605566289]
-transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -41.025963, 66.16119, 101.53185)
+[node name="NPC_1" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
+transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4, 0, 1.1920929e-08, -3.5527137e-16, 0.4, -5.859413, 5.726349, 71.81868)
+
+[node name="NPC_2" parent="SubViewport" unique_id=1715919629 instance=ExtResource("2_45idv")]
+transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4, 0, 1.1920929e-08, -3.5527137e-16, 0.4, -26.492651, 5.726349, 73.87763)
+
+[node name="Player" parent="SubViewport" unique_id=197177369 instance=ExtResource("3_45idv")]
+transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4, 0, 1.1920929e-08, -3.5527137e-16, 0.4, -8.056793, 5.5920563, 62.86968)
+
+[node name="Cam_Rig" type="Node3D" parent="SubViewport/Player" unique_id=605566289]
+transform = Transform3D(1.7677671, 1.0139496, -1.4480699, -5.2683564e-08, 2.0478802, 1.4339411, 1.7677671, -1.0139495, 1.4480699, -60.023, 155.068, -41.341)
 script = ExtResource("1_45idv")
 
-[node name="OrthoCam" type="Camera3D" parent="SubViewport/Cam_Rig" unique_id=773090554]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 2.9802322e-08, 1, 0, 0, 0)
-environment = SubResource("Environment_rdpjm")
-attributes = SubResource("CameraAttributesPractical_rdpjm")
+[node name="OrthoCam" type="Camera3D" parent="SubViewport/Player/Cam_Rig" unique_id=773090554]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, -2.9802322e-07, 0, 3.2782555e-07, 1, 26.740286, -46.585472, 138.9145)
+attributes = SubResource("CameraAttributesPractical_o6wit")
 projection = 1
-fov = 1.7187443
-size = 44.103
-
-[node name="enemy1" type="CharacterBody3D" parent="SubViewport" unique_id=696997839]
-transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 16.752022, 4.197937, 62.86968)
-
-[node name="Sprite3D" type="Sprite3D" parent="SubViewport/enemy1" unique_id=938422712]
-transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
-billboard = 2
-shaded = true
-texture_filter = 0
-texture = ExtResource("3_rdpjm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/enemy1" unique_id=152897743]
-transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_r0du0")
-
-[node name="Player" type="CharacterBody3D" parent="SubViewport" unique_id=1216026225]
-transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 7.897911, 4.197937, 62.86968)
-script = ExtResource("1_mjwvt")
-
-[node name="Sprite3D" type="Sprite3D" parent="SubViewport/Player" unique_id=1467741677]
-transform = Transform3D(0.99999994, -2.6469778e-23, 0, -2.6469778e-23, 0.99999994, 0, 0, 0, 0.99999994, 0, 6.666666, 0)
-billboard = 2
-shaded = true
-texture_filter = 0
-texture = ExtResource("5_eujqu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Player" unique_id=1715556023]
-transform = Transform3D(1, -8.881784e-16, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_r0du0")
+fov = 37.849285
+size = 38.033
+near = 0.068
 
 [node name="Floor" type="StaticBody3D" parent="SubViewport" unique_id=94546120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592983, 0.4553833, 5.3194084)
@@ -179,13 +112,24 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1290293, 0.4553833, 6.9128237)
 
 [node name="DirectionalLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
-transform = Transform3D(1, 0, 0, 0, -0.093632475, 0.99560684, 0, -0.99560684, -0.093632475, 49.670338, 26.247189, 57.24933)
+transform = Transform3D(1, 0, 0, 0, -0.093632475, 0.99560684, 0, -0.99560684, -0.093632475, -23.323664, 42.03112, 52.292286)
 light_projector = SubResource("GradientTexture2D_0r0mg")
 light_size = 0.059
 shadow_enabled = true
-spot_range = 40.325
-spot_attenuation = -0.7
+spot_range = 43.74
+spot_attenuation = -0.83
 spot_angle = 27.77
+spot_angle_attenuation = 1.4142139
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=623589911]
-environment = ExtResource("4_gg4ti")
+environment = ExtResource("6_45idv")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=978658958]
+transform = Transform3D(-0.008566356, -0.98732305, 0.15849233, -0.053286072, 0.15872367, 0.9858841, -0.99854255, 9.326819e-10, -0.05397025, 0, 43.980656, 100.12934)
+light_color = Color(1, 0.13786113, 0.49102628, 1)
+light_size = 0.363
+shadow_enabled = true
+shadow_blur = 2.1
+area_range = 62.478
+area_attenuation = -0.287
+area_size = Vector2(11, 11)

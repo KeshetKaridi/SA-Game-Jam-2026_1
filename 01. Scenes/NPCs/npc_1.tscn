@@ -13,6 +13,7 @@ transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.1
 transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, 0, 0, 0)
 billboard = 2
 shaded = true
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_saxhr")
 
