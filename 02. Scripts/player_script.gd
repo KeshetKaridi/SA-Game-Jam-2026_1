@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var Char_Sprite: AnimatedSprite3D = $Player_AnimSprite
 
 
-const SPEED = 13
+const SPEED = 7
 const JUMP_VELOCITY = 7
 
 func _ready() -> void:

@@ -15,16 +15,6 @@ dof_blur_far_enabled = true
 dof_blur_far_distance = 1982.8
 dof_blur_far_transition = 5285.7
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxmck"]
-albedo_color = Color(0.5045207, 0.61449194, 0.34359285, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_tnskl"]
-material = SubResource("StandardMaterial3D_uxmck")
-size = Vector3(10, 1, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
-size = Vector3(10, 1, 10)
-
 [sub_resource type="Gradient" id="Gradient_0r0mg"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.50914633)
@@ -56,68 +46,36 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(1920, 1080)
 
 [node name="NPC_1" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
-transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4, 0, 1.1920929e-08, -3.5527137e-16, 0.4, -5.859413, 5.726349, 71.81868)
+transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, -5.859413, 5.726349, 71.81868)
 
 [node name="NPC_2" parent="SubViewport" unique_id=1715919629 instance=ExtResource("2_45idv")]
-transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4, 0, 1.1920929e-08, -3.5527137e-16, 0.4, -26.492651, 5.726349, 73.87763)
+transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, -26.492651, 5.726349, 73.87763)
 
 [node name="Player" parent="SubViewport" unique_id=197177369 instance=ExtResource("3_45idv")]
-transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4, 0, 1.1920929e-08, -3.5527137e-16, 0.4, -8.056793, 5.5920563, 62.86968)
+transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, -8.056793, 5.5920563, 62.86968)
 
 [node name="Cam_Rig" type="Node3D" parent="SubViewport/Player" unique_id=605566289]
-transform = Transform3D(1.7677671, 1.0139496, -1.4480699, -5.2683564e-08, 2.0478802, 1.4339411, 1.7677671, -1.0139495, 1.4480699, -60.023, 155.068, -41.341)
+transform = Transform3D(0.7071068, 0.40557984, -0.579228, -2.1073426e-08, 0.81915206, 0.57357645, 0.7071068, -0.40557978, 0.579228, -143.59311, 146.07167, 134.17993)
 script = ExtResource("1_45idv")
 
 [node name="OrthoCam" type="Camera3D" parent="SubViewport/Player/Cam_Rig" unique_id=773090554]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, -2.9802322e-07, 0, 3.2782555e-07, 1, 26.740286, -46.585472, 138.9145)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, -2.9802322e-07, 0, 3.2782555e-07, 1, 0, 0, 0)
 attributes = SubResource("CameraAttributesPractical_o6wit")
 projection = 1
 fov = 37.849285
-size = 38.033
+size = 15.0
 near = 0.068
-
-[node name="Floor" type="StaticBody3D" parent="SubViewport" unique_id=94546120]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592983, 0.4553833, 5.3194084)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Floor" unique_id=489500742]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
-visible = false
-mesh = SubResource("BoxMesh_tnskl")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewport/Floor" unique_id=1662179012]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
-visible = false
-shape = SubResource("BoxShape3D_uu6xs")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport" unique_id=661075415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.616533, 5.190131, 65.16397)
-light_energy = 1.56
-shadow_enabled = true
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewport" unique_id=278258355]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.035976, 1.5952709, 61.519356)
-light_color = Color(0.8971607, 0.6718346, 0.8803701, 1)
-light_energy = 4.262
-shadow_enabled = true
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewport" unique_id=1323034488]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.967236, 2.412667, 54.02764)
-light_color = Color(0.32308525, 0.7745309, 0.8098867, 1)
-light_energy = 4.262
-light_volumetric_fog_energy = 3.773
-shadow_enabled = true
 
 [node name="Terrain" parent="SubViewport" unique_id=1401252360 instance=ExtResource("3_0r0mg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1290293, 0.4553833, 6.9128237)
 
-[node name="DirectionalLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
 transform = Transform3D(1, 0, 0, 0, -0.093632475, 0.99560684, 0, -0.99560684, -0.093632475, -23.323664, 42.03112, 52.292286)
 light_projector = SubResource("GradientTexture2D_0r0mg")
 light_size = 0.059
 shadow_enabled = true
 spot_range = 43.74
-spot_attenuation = -0.83
+spot_attenuation = -0.56
 spot_angle = 27.77
 spot_angle_attenuation = 1.4142139
 
@@ -133,3 +91,14 @@ shadow_blur = 2.1
 area_range = 62.478
 area_attenuation = -0.287
 area_size = Vector2(11, 11)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2027257588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.703354, 14.670643, 20.723755)
+light_energy = 0.289
+light_volumetric_fog_energy = 2.707
+light_angular_distance = 14.8
+light_specular = 3.062
+shadow_enabled = true
+shadow_transmittance_bias = 1.53
+shadow_blur = 3.667
+directional_shadow_mode = 0
