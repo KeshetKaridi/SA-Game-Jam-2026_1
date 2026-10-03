@@ -5,6 +5,9 @@
 [ext_resource type="Resource" uid="uid://r6ss2ilkekoq" path="res://addons/MarchingSquaresTerrain/resources/texture_presets/example_flat_toon.tres" id="3_3ok20"]
 [ext_resource type="Script" uid="uid://cql4d8s5t5xcx" path="res://addons/MarchingSquaresTerrain/algorithm/terrain/marching_squares_terrain_chunk.gd" id="4_y3tf1"]
 [ext_resource type="Script" uid="uid://22l7ysgniux3" path="res://addons/MarchingSquaresTerrain/algorithm/grass/marching_squares_grass_planter.gd" id="5_s76mx"]
+[ext_resource type="PackedScene" uid="uid://cqojwg1403qif" path="res://03. Assets/Environments/road/road-straight.glb" id="5_x6ihp"]
+[ext_resource type="PackedScene" uid="uid://bneqdyr3t2djc" path="res://03. Assets/Environments/road/road-intersection-path.glb" id="7_sqiir"]
+[ext_resource type="PackedScene" uid="uid://dcy676u6e868a" path="res://03. Assets/Environments/road/road-intersection-line.glb" id="8_7rttv"]
 
 [sub_resource type="Texture2D" id="Texture2D_x6ihp"]
 resource_local_to_scene = false
@@ -81,19 +84,13 @@ sky_material = SubResource("ShaderMaterial_omf8y")
 background_mode = 2
 sky = SubResource("Sky_qdken")
 
-[sub_resource type="BoxMesh" id="BoxMesh_omf8y"]
-size = Vector3(50, 0.22, 50)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ok20"]
-albedo_color = Color(0.43331885, 0.528455, 0.6606744, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_omf8y"]
-size = Vector3(50, 0.22, 50)
-
 [node name="Terrain" type="Node3D" unique_id=1401252360]
 
+[node name="GridMap" type="GridMap" parent="." unique_id=970899287]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 9.432165, 0, 115.51041)
+
 [node name="MarchingSquaresTerrain" type="Node3D" parent="." unique_id=2107531904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008794427, 0)
+transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 1.436, 0, 0, 0)
 script = ExtResource("2_omf8y")
 data_directory = "res://scenes/mst_demo_presets_TerrainData/MarchingSquaresTerrain_955a7df8"
 _storage_initialized = true
@@ -115,22 +112,18 @@ current_texture_preset = ExtResource("3_3ok20")
 metadata/_custom_type_script = "uid://cddg1xr5hye1d"
 
 [node name="Chunk (-1, 0)" type="MeshInstance3D" parent="MarchingSquaresTerrain" unique_id=1918248269 node_paths=PackedStringArray("terrain_system")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.54517, 50.605247, 1.2357467)
 script = ExtResource("4_y3tf1")
 terrain_system = NodePath("..")
 chunk_coords = Vector2i(-1, 0)
 
 [node name="GrassPlanter" type="MultiMeshInstance3D" parent="MarchingSquaresTerrain/Chunk (-1, 0)" unique_id=820892452]
+visible = false
 cast_shadow = 0
 script = ExtResource("5_s76mx")
 
-[node name="Chunk (0, 0)" type="MeshInstance3D" parent="MarchingSquaresTerrain" unique_id=562857827 node_paths=PackedStringArray("terrain_system")]
-script = ExtResource("4_y3tf1")
-terrain_system = NodePath("..")
-
-[node name="GrassPlanter" type="MultiMeshInstance3D" parent="MarchingSquaresTerrain/Chunk (0, 0)" unique_id=450714160]
-cast_shadow = 0
-script = ExtResource("5_s76mx")
+[node name="road-straight2" parent="." unique_id=404084239 instance=ExtResource("5_x6ihp")]
+transform = Transform3D(-4.283716e-06, 0, 8.926, 0, 0.05, 0, -98, 0, -3.9016783e-07, 3.9472818, 2.539917, 44.49102)
 
 [node name="OrthoCam" type="Camera3D" parent="." unique_id=966434200]
 transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -51.458744, 66.68516, 99.98582)
@@ -138,12 +131,20 @@ environment = SubResource("Environment_3ok20")
 projection = 1
 size = 34.153
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=757892213]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.065445, 1.3700943, 88.32197)
+[node name="road-intersection-path2" parent="." unique_id=1666176560 instance=ExtResource("7_sqiir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.33226, 22.503242, 77.81785)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1936966451]
-mesh = SubResource("BoxMesh_omf8y")
-surface_material_override/0 = SubResource("StandardMaterial3D_3ok20")
+[node name="road-intersection-line2" parent="." unique_id=1703596566 instance=ExtResource("8_7rttv")]
+transform = Transform3D(-3.1987994e-07, 0, -8.926, 0, 0.05, 0, 7.318, 0, -3.9016783e-07, 3.9407122, 2.54, 96.652)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=938123864]
-shape = SubResource("BoxShape3D_omf8y")
+[node name="road-straight3" parent="." unique_id=1163301079 instance=ExtResource("5_x6ihp")]
+transform = Transform3D(-98, 0, -9.310401e-07, 0, 0.05, 0, 1.4797589e-05, 0, -6.166, -22.150982, 2.5393753, 96.71971)
+
+[node name="road-intersection-line3" parent="." unique_id=1638712867 instance=ExtResource("8_7rttv")]
+transform = Transform3D(-3.1987994e-07, 0, 8.926, 0, 0.05, 0, -7.318, 0, -3.9016783e-07, -68.47158, 2.54, 96.652)
+
+[node name="road-straight4" parent="." unique_id=837005025 instance=ExtResource("5_x6ihp")]
+transform = Transform3D(-4.283716e-06, 0, 8.926, 0, 0.05, 0, -98, 0, -3.9016783e-07, -68.45443, 2.539917, 44.491024)
+
+[node name="road-straight5" parent="." unique_id=274204010 instance=ExtResource("5_x6ihp")]
+transform = Transform3D(-98, 0, -9.310401e-07, 0, 0.05, 0, 1.4797589e-05, 0, -6.166, -22.150997, 2.5393753, -1.3098602)
