@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://6csbttpjv4eo" path="res://player_script.gd" id="1_glv2v"]
 [ext_resource type="Texture2D" uid="uid://bttms43jrjdyd" path="res://jump spritesheet.png" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://t007qglvqxyv" path="res://Caleb_Terrain Tests.tscn" id="3_r0du0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uxmck"]
+radius = 0.101
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
+radius = 0.101
+height = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
+size = Vector3(0.365, 0.24, 1.065)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_onn7j"]
 sky_top_color = Color(0.23067471, 0.44348675, 0.7646271, 1)
@@ -12,12 +24,12 @@ ground_horizon_color = Color(0.75783527, 0.61728036, 0.5909042, 1)
 ground_curve = 0.013195056
 energy_multiplier = 1.5
 
-[sub_resource type="Sky" id="Sky_qdken"]
+[sub_resource type="Sky" id="Sky_r0du0"]
 sky_material = SubResource("ProceduralSkyMaterial_onn7j")
 
 [sub_resource type="Environment" id="Environment_uxmck"]
 background_mode = 2
-sky = SubResource("Sky_qdken")
+sky = SubResource("Sky_r0du0")
 sky_rotation = Vector3(0, 0, -0.28274333)
 ambient_light_source = 3
 ambient_light_color = Color(0.82688326, 0.8925445, 0.9481841, 1)
@@ -110,6 +122,23 @@ size = Vector3(10, 1, 10)
 
 [node name="Node3D" type="Node3D" unique_id=815362948]
 
+[node name="enemy1" type="CharacterBody3D" parent="." unique_id=696997839]
+transform = Transform3D(1, 0, 2.9802322e-08, 2.9802322e-08, 1, -2.9802322e-08, 2.9802322e-08, 0, 1, 3.0498557, 0.71291256, 0.869678)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy1" unique_id=1947077035]
+transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, -1.6459007, -0.38001418, -0.5870669)
+mesh = SubResource("CapsuleMesh_uxmck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy1" unique_id=152897743]
+transform = Transform3D(1, 0, 0, 8.881784e-16, 1, 0, 0, 0, 1, -1.6459007, -0.3860918, -0.5870669)
+shape = SubResource("CapsuleShape3D_r0du0")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="enemy1" unique_id=1939055066]
+transform = Transform3D(0.40152818, 4.5130207e-08, 0.91584665, -9.458505e-09, 1, -4.5130204e-08, -0.91584665, 9.458507e-09, 0.40152818, -1.7213111, 0.2626642, -0.24809015)
+shape = SubResource("BoxShape3D_tnskl")
+target_position = Vector3(-0.075, 0.05, 0.3)
+margin = 2.49
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1238377662]
 transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -8.81573, 10.56934, 13.06421)
 environment = SubResource("Environment_uxmck")
@@ -146,13 +175,16 @@ debug_color = Color(0.88235295, 0.3372549, 0, 1)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=94546120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.592983, 0.4553833, 5.3194084)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=489500742]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
+visible = false
 mesh = SubResource("BoxMesh_tnskl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor" unique_id=1662179012]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 2.2001402, -0.8158846, -2.594862)
+visible = false
 shape = SubResource("BoxShape3D_uu6xs")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=661075415]
@@ -172,3 +204,6 @@ light_color = Color(0.32308525, 0.7745309, 0.8098867, 1)
 light_energy = 4.262
 light_volumetric_fog_energy = 3.773
 shadow_enabled = true
+
+[node name="Terrain" parent="." unique_id=1401252360 instance=ExtResource("3_r0du0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1290293, 0.4553833, 6.9128237)

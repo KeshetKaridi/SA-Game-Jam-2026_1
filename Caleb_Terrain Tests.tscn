@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://t007qglvqxyv"]
+
+[ext_resource type="Shader" uid="uid://ckqsk30ofu7a8" path="res://Anime_Sky_test.gdshader" id="1_k70vq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tnskl"]
+size = Vector3(11, 0.132, 11)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxmck"]
+albedo_color = Color(0.4841141, 0.6975576, 0.41998565, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k70vq"]
+size = Vector3(14.406311, 0.13232422, 17.26654)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onn7j"]
+shader = ExtResource("1_k70vq")
+shader_parameter/back_color_top = Color(0.12, 0.4, 0.66, 1)
+shader_parameter/back_color_bottom = Color(0.34, 0.75, 0.92, 1)
+shader_parameter/sun_size = 0.001
+shader_parameter/sun_softness = 0.1
+shader_parameter/sun_glow_size = 0.2
+shader_parameter/sun_color = Color(1, 1, 1, 1)
+shader_parameter/sun_glow_color = Color(1, 1, 1, 0.15)
+shader_parameter/hor_height_min = 0.05
+shader_parameter/hor_height_max = 0.2
+shader_parameter/hor_color_mix = Color(1, 1, 1, 0.125)
+shader_parameter/hor_color_add = Color(1, 1, 1, 0.125)
+shader_parameter/cloud_hor_start = 0.25
+shader_parameter/cloud_hor_end = 0.5
+shader_parameter/cloud_hor_scale = Vector2(2, 2)
+shader_parameter/cloud_top_start = 0.6
+shader_parameter/cloud_top_end = 0.7
+shader_parameter/cloud_top_scale = 0.5
+shader_parameter/clouds_power = 3.0
+shader_parameter/cloud_transtion_start = 0.8
+shader_parameter/cloud_transtion_end = 0.9
+shader_parameter/cloud_color_bright = Color(1, 1, 1, 1)
+shader_parameter/cloud_color_dark = Color(0.8, 0.9, 1, 1)
+shader_parameter/cloud_color_edges_mix = Color(1, 1, 1, 1)
+shader_parameter/cloud_color_edges_add = Color(1, 1, 1, 1)
+shader_parameter/cloud_edges = 0.9
+shader_parameter/hor_speed = 0.1
+shader_parameter/hor_layer0_speed_mult = 0.05
+shader_parameter/hor_layer1_speed_mult = 0.1
+shader_parameter/top_speed = 0.05
+
+[sub_resource type="Sky" id="Sky_qdken"]
+sky_material = SubResource("ShaderMaterial_onn7j")
+
+[sub_resource type="Environment" id="Environment_uxmck"]
+background_mode = 2
+sky = SubResource("Sky_qdken")
+
+[node name="Terrain" type="Node3D" unique_id=1401252360]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=394988363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4032288, -0.4338379, -5.691986)
+mesh = SubResource("BoxMesh_tnskl")
+surface_material_override/0 = SubResource("StandardMaterial3D_uxmck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1191363178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4032288, -0.4338379, -5.691986)
+shape = SubResource("BoxShape3D_k70vq")
+
+[node name="OrthoCam" type="Camera3D" parent="." unique_id=1419699317]
+transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -28.339787, 23.235987, 18.106524)
+environment = SubResource("Environment_uxmck")
+projection = 1
+size = 9.411
