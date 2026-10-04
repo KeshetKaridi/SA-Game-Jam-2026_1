@@ -93,7 +93,7 @@ func say_text(text:String, life:float = 0.0) -> void:
 
 	letter_time = text_speed
 	current_letter = 0
-	speech_text = "text"
+	speech_text = text
 	
 	life_time = life
 	if text_speed > 0.0:

@@ -11,21 +11,27 @@
 [ext_resource type="Environment" uid="uid://ccnmbtuh0ed3e" path="res://03. Assets/Environments/Env_2.tres" id="6_45idv"]
 [ext_resource type="FontFile" uid="uid://u6tjn8a3qa08" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff" id="6_trlnv"]
 [ext_resource type="PackedScene" uid="uid://dinbgrt2mpijt" path="res://01. Scenes/NPCs/Cat_1.tscn" id="7_rdpjm"]
+[ext_resource type="FontFile" uid="uid://b47emmcndjilu" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff2" id="10_3pjj1"]
 [ext_resource type="Texture2D" uid="uid://dfcuhn6wnp6y0" path="res://03. Assets/Ref/WA_1791114016207.jpeg" id="13_3pjj1"]
+[ext_resource type="PackedScene" uid="uid://m48m6c73jwwd" path="res://01. Scenes/park.tscn" id="14_btyb2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tnskl"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pjj1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btyb2"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
 billboard_mode = 2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_btyb2"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_4144n"]
 size = Vector2(5, 3)
 orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdken"]
+size = Vector3(17.182617, 6.9213867, 27.604767)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
 size = Vector3(11, 11, 11)
@@ -97,13 +103,13 @@ directional_shadow_mode = 0
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, -3.2111893, 1.3521633, 60.355167)
 
 [node name="Label3D" type="MeshInstance3D" parent="SubViewport/Cat_1" unique_id=1235294720]
-transform = Transform3D(1, 2.9802322e-08, 2.9802322e-08, -2.9802322e-08, 1, -8.881784e-16, -2.9802322e-08, 0, 1, -1.113, 3.117, 1.16)
-material_override = SubResource("StandardMaterial3D_3pjj1")
-mesh = SubResource("PlaneMesh_btyb2")
+transform = Transform3D(0.9999998, 2.9802317e-08, 2.9802317e-08, -2.9802317e-08, 0.9999998, -8.8817826e-16, -2.9802317e-08, 0, 0.9999998, 0.5784626, 3.8408751, 1.1600037)
+material_override = SubResource("StandardMaterial3D_btyb2")
+mesh = SubResource("PlaneMesh_4144n")
 script = ExtResource("2_qygcd")
-text = "[wave amp=122 freq=3]CAT[/wave]"
+text = "[wave amp=122 freq=3]!!![/wave]"
 font = ExtResource("2_eujqu")
-font_size = 222
+font_size = 181
 size = Vector2(5, 3)
 text_width = 940.0
 render_continuously = true
@@ -111,15 +117,21 @@ unshaded = false
 billboard_mode = 1
 metadata/_custom_type_script = "uid://cofw7sywoopgu"
 
+[node name="Area3D" type="Area3D" parent="SubViewport/Cat_1" unique_id=1721368944]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewport/Cat_1/Area3D" unique_id=993738246]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -0.49267578, 0.51289797, 1.5782928)
+shape = SubResource("BoxShape3D_qdken")
+
 [node name="NPC_1" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
 transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, 39.284, 2.161, 35.042)
 
 [node name="NPC1_SpeechBubble" type="Node3D" parent="SubViewport/NPC_1" unique_id=2037199942]
 transform = Transform3D(5, 1.4901161e-07, 1.4901161e-07, -1.4901161e-07, 5, -4.440892e-15, -1.4901161e-07, 0, 5, -0.7940426, 6.690464, 0.71939087)
 script = ExtResource("5_ut8mm")
-wrap_size = 100.0
+wrap_size = 360.0
 text_font = ExtResource("6_trlnv")
-text_size = 32
+text_size = 24
 metadata/_custom_type_script = "uid://w3djedfesukg"
 
 [node name="Area3D" type="Area3D" parent="SubViewport/NPC_1" unique_id=477333971]
@@ -132,6 +144,14 @@ transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2,
 
 [node name="Player" parent="SubViewport" unique_id=197177369 groups=["Player"] instance=ExtResource("3_45idv")]
 transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, -8.056793, 1.9850273, 62.86968)
+
+[node name="Player_SpeechBubble_1" type="Node3D" parent="SubViewport/Player" unique_id=1819530175]
+transform = Transform3D(1, -2.646978e-23, 0, -2.646978e-23, 1, 0, 0, 0, 1, 0, 7.6582365, 0)
+script = ExtResource("5_ut8mm")
+wrap_size = 360.0
+text_font = ExtResource("10_3pjj1")
+text_size = 18
+metadata/_custom_type_script = "uid://w3djedfesukg"
 
 [node name="Cam_Rig" type="Node3D" parent="SubViewport/Player" unique_id=605566289]
 transform = Transform3D(0.7071068, 0.40557984, -0.579228, -2.1073426e-08, 0.81915206, 0.57357645, 0.7071068, -0.40557978, 0.579228, -143.59311, 146.07167, 134.17993)
@@ -171,4 +191,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0.25
 shape = SubResource("BoxShape3D_uxmck")
 debug_color = Color(0, 0.5019608, 0.49411765, 1)
 
+[node name="Park" parent="." unique_id=510737163 instance=ExtResource("14_btyb2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.096077, 0.38398838, 36.18324)
+visible = false
+
+[connection signal="body_entered" from="SubViewport/Cat_1/Area3D" to="." method="_Cat_On_Area_Entered"]
 [connection signal="body_shape_entered" from="SubViewport/NPC_1/Area3D" to="." method="NPC1_Area_Entered_"]

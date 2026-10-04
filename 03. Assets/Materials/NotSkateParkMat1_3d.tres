@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d4estb47bviu6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qdken"]
+noise_type = 3
+frequency = 0.0043
+offset = Vector3(0, -59.7, 0)
+fractal_octaves = 6
+fractal_lacunarity = 2.255
+fractal_gain = -0.12
+fractal_weighted_strength = 0.05
+fractal_ping_pong_strength = 2.065
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uxmck"]
+noise = SubResource("FastNoiseLite_qdken")
+
+[resource]
+albedo_color = Color(0.556953, 0.556953, 0.556953, 1)
+metallic = 0.66
+metallic_specular = 0.37
+roughness_texture = SubResource("NoiseTexture2D_uxmck")

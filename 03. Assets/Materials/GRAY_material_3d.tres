@@ -1,4 +1,20 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://gdcav7ll4qlo"]
 
+[ext_resource type="Texture2D" uid="uid://ddanrvi3sjwae" path="res://03. Assets/Materials/concrete_hd/concrete_tex.png" id="1_lt7nd"]
+[ext_resource type="Texture2D" uid="uid://bxbanyf66eqt4" path="res://03. Assets/Materials/concrete_hd/concrete_height.png" id="2_gccx8"]
+[ext_resource type="Texture2D" uid="uid://c6mk4qqn02fy" path="res://03. Assets/Materials/concrete_hd/concrete_spec.png" id="3_i5ri5"]
+
 [resource]
-albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.7030818, 0.6751868, 0.682234, 1)
+albedo_texture = ExtResource("1_lt7nd")
+metallic = 0.82
+metallic_specular = 0.45
+metallic_texture = ExtResource("3_i5ri5")
+roughness = 0.47
+ao_enabled = true
+heightmap_enabled = true
+heightmap_scale = 0.429
+heightmap_texture = ExtResource("2_gccx8")
+heightmap_flip_texture = true
