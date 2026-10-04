@@ -162,7 +162,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, -2.9802322e-07, 0, 3.2782555e-07
 attributes = SubResource("CameraAttributesPractical_o6wit")
 projection = 1
 fov = 37.849285
-size = 15.0
+size = 19.898
 near = 0.068
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
@@ -192,8 +192,7 @@ shape = SubResource("BoxShape3D_uxmck")
 debug_color = Color(0, 0.5019608, 0.49411765, 1)
 
 [node name="Park" parent="." unique_id=510737163 instance=ExtResource("14_btyb2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.096077, 0.38398838, 36.18324)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.096077, 1.3839884, 36.18324)
 
 [connection signal="body_entered" from="SubViewport/Cat_1/Area3D" to="." method="_Cat_On_Area_Entered"]
 [connection signal="body_shape_entered" from="SubViewport/NPC_1/Area3D" to="." method="NPC1_Area_Entered_"]
