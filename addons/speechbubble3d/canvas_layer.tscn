@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://co3qmcfrabvxk"]
+
+[sub_resource type="Gradient" id="Gradient_kl20f"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kl20f"]
+gradient = SubResource("Gradient_kl20f")
+fill_from = Vector2(0, 0.86752135)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kl20f"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1579604601]
+visible = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=283780329]
+color = Color(1, 1, 1, 0.47843137)
+
+[node name="ResizeContainer" type="VBoxContainer" parent="CanvasModulate" unique_id=126997221]
+offset_right = 60.0
+offset_bottom = 63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="EncloseContainer" type="MarginContainer" parent="CanvasModulate/ResizeContainer" unique_id=1899515520]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BubblePicLeft" type="NinePatchRect" parent="CanvasModulate/ResizeContainer/EncloseContainer" unique_id=1655074728]
+layout_mode = 2
+patch_margin_left = 40
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 40
+
+[node name="BubblePicRight" type="NinePatchRect" parent="CanvasModulate/ResizeContainer/EncloseContainer" unique_id=448398661]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_kl20f")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="TextMargin" type="MarginContainer" parent="CanvasModulate/ResizeContainer/EncloseContainer" unique_id=746951090]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="Text" type="Label" parent="CanvasModulate/ResizeContainer/EncloseContainer/TextMargin" unique_id=979440389]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_kl20f")
+autowrap_mode = 2
+justification_flags = 161

@@ -150,7 +150,7 @@ animations = [{
 transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1361817643]
-transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -1.0864037e-08, -0.36453658, 0)
 shape = SubResource("CapsuleShape3D_r0du0")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1376210144]

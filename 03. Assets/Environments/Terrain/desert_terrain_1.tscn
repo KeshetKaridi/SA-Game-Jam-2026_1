@@ -11,6 +11,9 @@ albedo_color = Color(0.45452422, 0.45452428, 0.45452422, 1)
 [node name="Environment_1" parent="." index="0" unique_id=453101665]
 surface_material_override/0 = SubResource("StandardMaterial3D_aix0w")
 
+[node name="Environment_1_001" parent="." index="1" unique_id=1137808438]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 5.3202877, 0, -22.773624)
+
 [node name="Environment_1_002" parent="." index="2" unique_id=1501373939]
 surface_material_override/0 = ExtResource("2_uopfm")
 
