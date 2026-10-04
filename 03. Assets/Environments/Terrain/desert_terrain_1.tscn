@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bgvt5aox74fnx"]
+
+[ext_resource type="PackedScene" uid="uid://c1bs5m2n5v2uw" path="res://03. Assets/Environments/Terrain/Desert_Terrain_1.glb" id="1_h063o"]
+[ext_resource type="Material" uid="uid://gdcav7ll4qlo" path="res://03. Assets/Materials/GRAY_material_3d.tres" id="2_uopfm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aix0w"]
+albedo_color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+
+[node name="Desert_Terrain_1" unique_id=377241959 instance=ExtResource("1_h063o")]
+
+[node name="Environment_1" parent="." index="0" unique_id=453101665]
+surface_material_override/0 = SubResource("StandardMaterial3D_aix0w")
+
+[node name="Environment_1_002" parent="." index="2" unique_id=1501373939]
+surface_material_override/0 = ExtResource("2_uopfm")
+
+[node name="Environment_1_003" parent="." index="3" unique_id=1665764484]
+surface_material_override/0 = ExtResource("2_uopfm")
+
+[node name="Environment_1_004" parent="." index="4" unique_id=1775680522]
+surface_material_override/0 = ExtResource("2_uopfm")
