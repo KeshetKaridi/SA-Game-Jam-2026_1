@@ -12,13 +12,12 @@
 [ext_resource type="FontFile" uid="uid://u6tjn8a3qa08" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff" id="6_trlnv"]
 [ext_resource type="PackedScene" uid="uid://dinbgrt2mpijt" path="res://01. Scenes/NPCs/Cat_1.tscn" id="7_rdpjm"]
 [ext_resource type="FontFile" uid="uid://b47emmcndjilu" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff2" id="10_3pjj1"]
-[ext_resource type="Texture2D" uid="uid://dfcuhn6wnp6y0" path="res://03. Assets/Ref/WA_1791114016207.jpeg" id="13_3pjj1"]
 [ext_resource type="PackedScene" uid="uid://m48m6c73jwwd" path="res://01. Scenes/park.tscn" id="14_btyb2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tnskl"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btyb2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pjj1"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -26,7 +25,7 @@ alpha_antialiasing_mode = 0
 albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
 billboard_mode = 2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_4144n"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_btyb2"]
 size = Vector2(5, 3)
 orientation = 2
 
@@ -55,9 +54,6 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.525641, 0.491453)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uxmck"]
-size = Vector3(20.13623, 27.06665, 1.7631836)
-
 [node name="Main" type="Node3D" unique_id=815362948]
 script = ExtResource("1_trlnv")
 
@@ -73,7 +69,6 @@ texture = SubResource("ViewportTexture_tnskl")
 use_debanding = true
 use_occlusion_culling = true
 scaling_3d_mode = 5
-scaling_3d_scale = 0.3
 anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
 size = Vector2i(1920, 1080)
@@ -100,12 +95,12 @@ shadow_blur = 3.667
 directional_shadow_mode = 0
 
 [node name="Cat_1" parent="SubViewport" unique_id=1848649770 instance=ExtResource("7_rdpjm")]
-transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, -3.2111893, 1.3521633, 60.355167)
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 12.991081, 0.4540844, 97.181335)
 
 [node name="Label3D" type="MeshInstance3D" parent="SubViewport/Cat_1" unique_id=1235294720]
 transform = Transform3D(0.9999998, 2.9802317e-08, 2.9802317e-08, -2.9802317e-08, 0.9999998, -8.8817826e-16, -2.9802317e-08, 0, 0.9999998, 0.5784626, 3.8408751, 1.1600037)
-material_override = SubResource("StandardMaterial3D_btyb2")
-mesh = SubResource("PlaneMesh_4144n")
+material_override = SubResource("StandardMaterial3D_3pjj1")
+mesh = SubResource("PlaneMesh_btyb2")
 script = ExtResource("2_qygcd")
 text = "[wave amp=122 freq=3]!!![/wave]"
 font = ExtResource("2_eujqu")
@@ -143,7 +138,7 @@ shape = SubResource("BoxShape3D_tnskl")
 transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, 33.976997, 1.9294739, -0.32648087)
 
 [node name="Player" parent="SubViewport" unique_id=197177369 groups=["Player"] instance=ExtResource("3_45idv")]
-transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, -8.056793, 1.9850273, 62.86968)
+transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, 0.21429443, 2.3149529, 85.35332)
 
 [node name="Player_SpeechBubble_1" type="Node3D" parent="SubViewport/Player" unique_id=1819530175]
 transform = Transform3D(1, -2.646978e-23, 0, -2.646978e-23, 1, 0, 0, 0, 1, 0, 7.6582365, 0)
@@ -162,7 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, -2.9802322e-07, 0, 3.2782555e-07
 attributes = SubResource("CameraAttributesPractical_o6wit")
 projection = 1
 fov = 37.849285
-size = 19.898
+size = 27.041
 near = 0.068
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
@@ -178,21 +173,10 @@ spot_angle_attenuation = 1.4142139
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=623589911]
 environment = ExtResource("6_45idv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=422948945]
-transform = Transform3D(2.995, 0, 0, 0, -1.3091561e-07, 2.995, 0, -2.995, -1.3091561e-07, 15.144178, 0.53723145, 32.376266)
-
-[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=1706920829]
-transform = Transform3D(1, 0, 0, 0, 1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0, 0, -0.106)
-shaded = true
-texture = ExtResource("13_3pjj1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=188990119]
-transform = Transform3D(1, 0, 0, 0, 1, 7.1054274e-15, 0, -7.1054274e-15, 1, 0.25073242, -0.04333639, -0.97690755)
-shape = SubResource("BoxShape3D_uxmck")
-debug_color = Color(0, 0.5019608, 0.49411765, 1)
+[node name="SolarEclipse" type="Sprite3D" parent="SubViewport" unique_id=577435546]
 
 [node name="Park" parent="." unique_id=510737163 instance=ExtResource("14_btyb2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.096077, 1.3839884, 36.18324)
+transform = Transform3D(0.8191522, 0, 0.5735765, 0, 1, 0, -0.5735765, 0, 0.8191522, 10.884346, 0.036499977, 48.201847)
 
 [connection signal="body_entered" from="SubViewport/Cat_1/Area3D" to="." method="_Cat_On_Area_Entered"]
 [connection signal="body_shape_entered" from="SubViewport/NPC_1/Area3D" to="." method="NPC1_Area_Entered_"]

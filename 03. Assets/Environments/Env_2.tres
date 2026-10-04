@@ -1,10 +1,9 @@
 [gd_resource type="Environment" format=3 uid="uid://ccnmbtuh0ed3e"]
 
-[ext_resource type="Texture2D" uid="uid://5elib47k5hr1" path="res://03. Assets/HDRi/qwantani_dusk_2_puresky_4k.hdr" id="1_aix0w"]
+[ext_resource type="Texture2D" uid="uid://caovk0jwdd1b" path="res://03. Assets/HDRi/alien-planet-with-red-sun_2K_cf5b81a7-7bc2-4de9-bc84-cb83190df316 copy.exr" id="1_aix0w"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_aix0w"]
 panorama = ExtResource("1_aix0w")
-energy_multiplier = 0.3
 
 [sub_resource type="Sky" id="Sky_45idv"]
 sky_material = SubResource("PanoramaSkyMaterial_aix0w")
@@ -12,8 +11,8 @@ sky_material = SubResource("PanoramaSkyMaterial_aix0w")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_45idv")
-sky_custom_fov = 36.8
-sky_rotation = Vector3(-1.6720254, -0.40142572, -0.7295476)
+sky_custom_fov = 42.0
+sky_rotation = Vector3(0.7853982, -4.007276, 0.108210415)
 ambient_light_source = 3
 ambient_light_color = Color(0.78056043, 0.7100012, 0.83583224, 1)
 reflected_light_source = 2
@@ -28,9 +27,12 @@ sdfgi_use_occlusion = true
 sdfgi_min_cell_size = 0.09765625
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 1.95
-glow_bloom = 0.53
+glow_intensity = 2.0
+glow_strength = 1.69
+glow_bloom = 1.0
 glow_blend_mode = 2
+glow_hdr_threshold = 0.6
+glow_hdr_scale = 1.68
 glow_map_strength = 0.79
 fog_mode = 1
 fog_light_color = Color(1.224, 0.909, 1.126, 1)
