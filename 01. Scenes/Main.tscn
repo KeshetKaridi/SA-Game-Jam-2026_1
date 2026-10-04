@@ -12,12 +12,26 @@
 [ext_resource type="FontFile" uid="uid://u6tjn8a3qa08" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff" id="6_trlnv"]
 [ext_resource type="PackedScene" uid="uid://dinbgrt2mpijt" path="res://01. Scenes/NPCs/Cat_1.tscn" id="7_rdpjm"]
 [ext_resource type="FontFile" uid="uid://b47emmcndjilu" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff2" id="10_3pjj1"]
-[ext_resource type="PackedScene" uid="uid://m48m6c73jwwd" path="res://01. Scenes/park.tscn" id="14_btyb2"]
+[ext_resource type="PackedScene" uid="uid://bsipmfypsqjto" path="res://01. Scenes/Terrain_V9.scn" id="13_3pjj1"]
+[ext_resource type="PackedScene" uid="uid://7sxybau7m20f" path="res://01. Scenes/NPCs/npc_3.tscn" id="13_btyb2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tnskl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3pjj1"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pjj1"]
+[sub_resource type="Gradient" id="Gradient_0r0mg"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.39285713)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0r0mg"]
+gradient = SubResource("Gradient_0r0mg")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.525641, 0.491453)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btyb2"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -25,7 +39,7 @@ alpha_antialiasing_mode = 0
 albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
 billboard_mode = 2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_btyb2"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_4144n"]
 size = Vector2(5, 3)
 orientation = 2
 
@@ -35,24 +49,17 @@ size = Vector3(17.182617, 6.9213867, 27.604767)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
 size = Vector3(11, 11, 11)
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o6wit"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 54.42
-dof_blur_near_enabled = true
-dof_blur_near_distance = 46.09
-dof_blur_near_transition = 2.0
-dof_blur_amount = 0.01
-
-[sub_resource type="Gradient" id="Gradient_0r0mg"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.50914633)
+[sub_resource type="Gradient" id="Gradient_btyb2"]
+offsets = PackedFloat32Array(0.5, 0.65178573)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0r0mg"]
-gradient = SubResource("Gradient_0r0mg")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4144n"]
+gradient = SubResource("Gradient_btyb2")
+width = 256
+height = 256
 use_hdr = true
-fill = 1
-fill_from = Vector2(0.525641, 0.491453)
+fill_from = Vector2(0.03846154, 0.974359)
+fill_to = Vector2(1, 0.021367522)
 
 [node name="Main" type="Node3D" unique_id=815362948]
 script = ExtResource("1_trlnv")
@@ -63,18 +70,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_tnskl")
+texture = SubResource("ViewportTexture_3pjj1")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1454758230]
 use_debanding = true
 use_occlusion_culling = true
 scaling_3d_mode = 5
+scaling_3d_scale = 0.5
 anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
 size = Vector2i(1920, 1080)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="SubViewport" unique_id=978658958]
-transform = Transform3D(-0.008566356, -0.98732305, 0.15849233, -0.053286072, 0.15872367, 0.9858841, -0.99854255, 9.326819e-10, -0.05397025, 0, 43.980656, 100.12934)
+transform = Transform3D(-0.008566356, -0.98732305, 0.15849233, -0.053286072, 0.15872367, 0.9858841, -0.99854255, 9.326819e-10, -0.05397025, 5.183777, 25.818485, -12.540398)
 light_color = Color(1, 0.13786113, 0.49102628, 1)
 light_size = 0.363
 shadow_enabled = true
@@ -84,8 +92,8 @@ area_attenuation = -0.287
 area_size = Vector2(11, 11)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=2027257588]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.703354, 14.670643, 20.723755)
-light_energy = 0.289
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.381119, 77.9951, 170.05542)
+light_energy = 0.45
 light_volumetric_fog_energy = 2.707
 light_angular_distance = 14.8
 light_specular = 3.062
@@ -94,13 +102,23 @@ shadow_transmittance_bias = 1.53
 shadow_blur = 3.667
 directional_shadow_mode = 0
 
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
+transform = Transform3D(0.9923814, -0.024143599, -0.12081523, 0.11885194, -0.07073093, 0.99038947, -0.032456942, -0.99720323, -0.06732254, -7.98662, 42.03112, 28.396679)
+light_projector = SubResource("GradientTexture2D_0r0mg")
+light_size = 0.059
+shadow_enabled = true
+spot_range = 67.457
+spot_attenuation = 0.05
+spot_angle = 22.34
+spot_angle_attenuation = 1.4142139
+
 [node name="Cat_1" parent="SubViewport" unique_id=1848649770 instance=ExtResource("7_rdpjm")]
-transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 12.991081, 0.4540844, 97.181335)
+transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4, 0, 1.1920929e-08, -3.5527137e-16, 0.4, 18.153801, 1.5301952, 96.50006)
 
 [node name="Label3D" type="MeshInstance3D" parent="SubViewport/Cat_1" unique_id=1235294720]
-transform = Transform3D(0.9999998, 2.9802317e-08, 2.9802317e-08, -2.9802317e-08, 0.9999998, -8.8817826e-16, -2.9802317e-08, 0, 0.9999998, 0.5784626, 3.8408751, 1.1600037)
-material_override = SubResource("StandardMaterial3D_3pjj1")
-mesh = SubResource("PlaneMesh_btyb2")
+transform = Transform3D(0.99999976, 2.9802315e-08, 2.9802315e-08, -2.9802315e-08, 0.99999976, -8.881782e-16, -2.9802315e-08, 0, 0.99999976, 0.5784607, 2.145624, -0.02368164)
+material_override = SubResource("StandardMaterial3D_btyb2")
+mesh = SubResource("PlaneMesh_4144n")
 script = ExtResource("2_qygcd")
 text = "[wave amp=122 freq=3]!!![/wave]"
 font = ExtResource("2_eujqu")
@@ -119,7 +137,7 @@ transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.9999997
 shape = SubResource("BoxShape3D_qdken")
 
 [node name="NPC_1" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
-transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, 39.284, 2.161, 35.042)
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 0.6475258, 1.1978042, -7.5628586)
 
 [node name="NPC1_SpeechBubble" type="Node3D" parent="SubViewport/NPC_1" unique_id=2037199942]
 transform = Transform3D(5, 1.4901161e-07, 1.4901161e-07, -1.4901161e-07, 5, -4.440892e-15, -1.4901161e-07, 0, 5, -0.7940426, 6.690464, 0.71939087)
@@ -134,11 +152,11 @@ metadata/_custom_type_script = "uid://w3djedfesukg"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/NPC_1/Area3D" unique_id=1393826481]
 shape = SubResource("BoxShape3D_tnskl")
 
-[node name="NPC_2" parent="SubViewport" unique_id=1715919629 instance=ExtResource("2_45idv")]
-transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, 33.976997, 1.9294739, -0.32648087)
+[node name="Doctor" parent="SubViewport" unique_id=1715919629 instance=ExtResource("2_45idv")]
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 62.20112, 2.3096619, 15.671444)
 
 [node name="Player" parent="SubViewport" unique_id=197177369 groups=["Player"] instance=ExtResource("3_45idv")]
-transform = Transform3D(0.2, -5.9604646e-09, -5.9604646e-09, 5.9604646e-09, 0.2, 0, 5.9604646e-09, -1.7763569e-16, 0.2, 0.21429443, 2.3149529, 85.35332)
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 0.21429443, 2.3149529, 85.35332)
 
 [node name="Player_SpeechBubble_1" type="Node3D" parent="SubViewport/Player" unique_id=1819530175]
 transform = Transform3D(1, -2.646978e-23, 0, -2.646978e-23, 1, 0, 0, 0, 1, 0, 7.6582365, 0)
@@ -153,29 +171,32 @@ transform = Transform3D(0.7071068, 0.40557984, -0.579228, -2.1073426e-08, 0.8191
 script = ExtResource("1_45idv")
 
 [node name="OrthoCam" type="Camera3D" parent="SubViewport/Player/Cam_Rig" unique_id=773090554]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, -2.9802322e-07, 0, 3.2782555e-07, 1, 0, 0, 0)
-attributes = SubResource("CameraAttributesPractical_o6wit")
+transform = Transform3D(3.3333333, -1.1920929e-07, -1.1920929e-07, 0, 3.3333333, -1.5497208e-06, 0, 1.4305115e-06, 3.333333, 0, -0.00012207031, 0.0002746582)
 projection = 1
 fov = 37.849285
 size = 27.041
 near = 0.068
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport" unique_id=179585445]
-transform = Transform3D(1, 0, 0, 0, -0.093632475, 0.99560684, 0, -0.99560684, -0.093632475, -23.323664, 42.03112, 52.292286)
-light_projector = SubResource("GradientTexture2D_0r0mg")
-light_size = 0.059
-shadow_enabled = true
-spot_range = 43.74
-spot_attenuation = -0.56
-spot_angle = 27.77
-spot_angle_attenuation = 1.4142139
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=623589911]
 environment = ExtResource("6_45idv")
 
-[node name="SolarEclipse" type="Sprite3D" parent="SubViewport" unique_id=577435546]
+[node name="NPC_2" parent="SubViewport" unique_id=503061790 instance=ExtResource("13_btyb2")]
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, -7.2182617, 0.90737975, 53.010254)
 
-[node name="Park" parent="." unique_id=510737163 instance=ExtResource("14_btyb2")]
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1279147373]
+transform = Transform3D(-0.089602314, -0.99415386, -0.060247093, 0.11885198, -0.070731014, 0.99038965, -0.98886085, 0.081580706, 0.124494806, 19.726088, 88.09429, 64.921036)
+light_color = Color(0.6272865, 0.5344483, 0.40886667, 1)
+light_energy = 0.167
+light_projector = SubResource("GradientTexture2D_4144n")
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.191
+shadow_blur = 0.208
+spot_range = 134.623
+spot_attenuation = -0.78
+spot_angle = 28.9
+
+[node name="Terrain" parent="." unique_id=510737163 instance=ExtResource("13_3pjj1")]
 transform = Transform3D(0.8191522, 0, 0.5735765, 0, 1, 0, -0.5735765, 0, 0.8191522, 10.884346, 0.036499977, 48.201847)
 
 [connection signal="body_entered" from="SubViewport/Cat_1/Area3D" to="." method="_Cat_On_Area_Entered"]

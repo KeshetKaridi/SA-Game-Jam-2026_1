@@ -40,9 +40,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
-radius = 1.8496094
-height = 14.162756
+[sub_resource type="BoxShape3D" id="BoxShape3D_aix0w"]
+margin = 0.0
+size = Vector3(3.416748, 12.324463, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=197177369]
 transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 0, 0, 0)
@@ -58,5 +58,5 @@ sprite_frames = SubResource("SpriteFrames_tnskl")
 animation = &"back"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1912880881]
-transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, 3.551517e-08, 0.77941877, 0)
-shape = SubResource("CapsuleShape3D_r0du0")
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -0.12609859, 0.11718737, 0)
+shape = SubResource("BoxShape3D_aix0w")

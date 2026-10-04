@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://7sxybau7m20f"]
+
+[ext_resource type="Texture2D" uid="uid://cwx64kwc8sxmg" path="res://03. Assets/Sprites/NPCs/NPC_Rando1.PNG" id="1_bidsj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yuuhb"]
+size = Vector3(3.4400635, 11, 1)
+
+[node name="NPC_2" type="CharacterBody3D" unique_id=1171066410]
+transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=230411016]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -0.57108563, -1.7045083, 1.7019676e-08)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_bidsj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1361817643]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -0.20025624, 0.3649485, 0)
+shape = SubResource("BoxShape3D_yuuhb")

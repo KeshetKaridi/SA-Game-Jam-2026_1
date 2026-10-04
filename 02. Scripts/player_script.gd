@@ -5,7 +5,7 @@ extends CharacterBody3D
 
 
 const SPEED = 7
-const JUMP_VELOCITY = 7
+const JUMP_VELOCITY = 6
 
 func _ready() -> void:
 	Char_Sprite.play("idle")

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="MarchingSquaresTexturePreset" format=3 uid="uid://ceedkgug17oaa"]
+
+[ext_resource type="Script" uid="uid://dqeuj3gddfm65" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_texture_names.gd" id="1_0qw77"]
+[ext_resource type="Texture2D" uid="uid://cxvnfgy865wsk" path="res://addons/MarchingSquaresTerrain/resources/plugin_materials/grass_leaf_sprite.png" id="2_koraw"]
+[ext_resource type="Script" uid="uid://c5yuywww81uee" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_texture_list.gd" id="3_s8315"]
+[ext_resource type="Texture2D" uid="uid://dbnc04k3n0sro" path="res://addons/MarchingSquaresTerrain/resources/plugin_materials/grass_terrain_noise.res" id="4_rqj58"]
+[ext_resource type="Texture2D" uid="uid://cv87twjgbqq0s" path="res://addons/MarchingSquaresTerrain/resources/plugin_materials/wall_noise_texture.res" id="5_cloq1"]
+[ext_resource type="Script" uid="uid://mtlf02qfkqp5" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_quick_paint.gd" id="6_2427i"]
+[ext_resource type="Script" uid="uid://fvb3vi413siv" path="res://addons/MarchingSquaresTerrain/editor/tools/scripts/marching_squares_texture_preset.gd" id="7_eecld"]
+
+[sub_resource type="Resource" id="Resource_avfyg"]
+script = ExtResource("1_0qw77")
+metadata/_custom_type_script = "uid://dqeuj3gddfm65"
+
+[sub_resource type="Resource" id="Resource_6dtoe"]
+script = ExtResource("3_s8315")
+terrain_textures = Array[Texture2D]([ExtResource("4_rqj58"), ExtResource("4_rqj58"), ExtResource("4_rqj58"), ExtResource("4_rqj58"), ExtResource("4_rqj58"), ExtResource("5_cloq1"), null, null, null, null, null, null, null, null, null])
+texture_scales = Array[float]([1.0, 0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.7999999999999999, 1.0])
+grass_colors = Array[Color]([Color(0.60376024, 0.73046875, 0.45083618, 1), Color(0.42045593, 0.64453125, 0.5079, 1), Color(0.37254903, 0.42352942, 0.29411766, 1), Color(0.39215687, 0.4745098, 0.25490198, 1), Color(0.2901961, 0.49411765, 0.3647059, 1), Color(0.44313726, 0.44705883, 0.3647059, 1)])
+
+[resource]
+script = ExtResource("7_eecld")
+preset_name = "Grass_Option1"
+new_tex_names = SubResource("Resource_avfyg")
+new_textures = SubResource("Resource_6dtoe")

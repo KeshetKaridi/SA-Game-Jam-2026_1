@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://uwc02fpor3q2"]
 
-[ext_resource type="Texture2D" uid="uid://cahatf1hwavdw" path="res://03. Assets/Sprites/NPCs/Batch1/NPC_3.png" id="1_saxhr"]
+[ext_resource type="Texture2D" uid="uid://57orvgrckusu" path="res://03. Assets/Sprites/NPCs/NPC_Soldier.png" id="1_saxhr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
 radius = 1.5209961
