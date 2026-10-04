@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://m48m6c73jwwd"]
+
+[ext_resource type="Script" uid="uid://c473enth2snnp" path="res://01. Scenes/caleb_player.gd" id="1_r121q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mcayh"]
+
+[sub_resource type="Sky" id="Sky_mutjd"]
+sky_material = SubResource("ProceduralSkyMaterial_mcayh")
+
+[sub_resource type="Environment" id="Environment_l6k4q"]
+background_mode = 2
+sky = SubResource("Sky_mutjd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g36p"]
+albedo_color = Color(0.250922, 0.6090142, 0.3255963, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0hux4"]
+material = SubResource("StandardMaterial3D_2g36p")
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_po1t3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6k4q"]
+albedo_color = Color(0.69409555, 0.6199747, 0.59710246, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_po1t3"]
+material = SubResource("StandardMaterial3D_l6k4q")
+size = Vector3(7.576706, 0.05, 92.426)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_po1t3"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_po1t3"]
+height = 3.072754
+
+[node name="Node3D" type="Node3D" unique_id=510737163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001209259)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=705444924]
+environment = SubResource("Environment_l6k4q")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1971997627]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 1.4872515, 2.974503, 2.575995)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1482822618]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1972941109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.16946411)
+mesh = SubResource("PlaneMesh_0hux4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=512082082]
+shape = SubResource("WorldBoundaryShape3D_po1t3")
+
+[node name="Props" type="Node3D" parent="." unique_id=1019722019]
+
+[node name="Paths" type="Node3D" parent="." unique_id=1049242809]
+
+[node name="crosspath" type="MeshInstance3D" parent="Paths" unique_id=1908567757]
+transform = Transform3D(0.34202015, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, 0.34202015, 0.14566378, -0.0047569275, -3.4512901)
+mesh = SubResource("BoxMesh_po1t3")
+
+[node name="MainPath" type="MeshInstance3D" parent="Paths" unique_id=1788794723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95731354, 0.15571976, 0.261837)
+mesh = SubResource("BoxMesh_po1t3")
+
+[node name="Vegetation" type="Node3D" parent="." unique_id=1858976272]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1264182667]
+script = ExtResource("1_r121q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=39306802]
+shape = SubResource("CapsuleShape3D_po1t3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=995531685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2066431, 1.5265698, 0)
+mesh = SubResource("CapsuleMesh_po1t3")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1281383801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
