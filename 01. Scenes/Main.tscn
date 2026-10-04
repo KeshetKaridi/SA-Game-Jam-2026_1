@@ -9,9 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://uwc02fpor3q2" path="res://01. Scenes/NPCs/npc_1.tscn" id="3_rdpjm"]
 [ext_resource type="Script" uid="uid://w3djedfesukg" path="res://addons/speechbubble3d/speech_bubble.gd" id="5_ut8mm"]
 [ext_resource type="Environment" uid="uid://ccnmbtuh0ed3e" path="res://03. Assets/Environments/Env_2.tres" id="6_45idv"]
-[ext_resource type="FontFile" uid="uid://u6tjn8a3qa08" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff" id="6_trlnv"]
+[ext_resource type="FontFile" uid="uid://cm713cl68rv56" path="res://03. Assets/Fonts/SpaceGrotesk-VariableFont_wght.ttf" id="7_btyb2"]
 [ext_resource type="PackedScene" uid="uid://dinbgrt2mpijt" path="res://01. Scenes/NPCs/Cat_1.tscn" id="7_rdpjm"]
-[ext_resource type="FontFile" uid="uid://b47emmcndjilu" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff2" id="10_3pjj1"]
 [ext_resource type="PackedScene" uid="uid://bsipmfypsqjto" path="res://01. Scenes/Terrain_V9.scn" id="13_3pjj1"]
 [ext_resource type="PackedScene" uid="uid://7sxybau7m20f" path="res://01. Scenes/NPCs/npc_3.tscn" id="13_btyb2"]
 
@@ -31,7 +30,7 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.525641, 0.491453)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btyb2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pjj1"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -39,15 +38,23 @@ alpha_antialiasing_mode = 0
 albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
 billboard_mode = 2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_4144n"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_btyb2"]
 size = Vector2(5, 3)
 orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdken"]
 size = Vector3(17.182617, 6.9213867, 27.604767)
 
+[sub_resource type="FontVariation" id="FontVariation_btyb2"]
+base_font = ExtResource("7_btyb2")
+variation_embolden = 2.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
 size = Vector3(11, 11, 11)
+
+[sub_resource type="FontVariation" id="FontVariation_4144n"]
+base_font = ExtResource("7_btyb2")
+variation_embolden = 1.0
 
 [sub_resource type="Gradient" id="Gradient_btyb2"]
 offsets = PackedFloat32Array(0.5, 0.65178573)
@@ -117,8 +124,8 @@ transform = Transform3D(0.4, -1.1920929e-08, -1.1920929e-08, 1.1920929e-08, 0.4,
 
 [node name="Label3D" type="MeshInstance3D" parent="SubViewport/Cat_1" unique_id=1235294720]
 transform = Transform3D(0.99999976, 2.9802315e-08, 2.9802315e-08, -2.9802315e-08, 0.99999976, -8.881782e-16, -2.9802315e-08, 0, 0.99999976, 0.5784607, 2.145624, -0.02368164)
-material_override = SubResource("StandardMaterial3D_btyb2")
-mesh = SubResource("PlaneMesh_4144n")
+material_override = SubResource("StandardMaterial3D_3pjj1")
+mesh = SubResource("PlaneMesh_btyb2")
 script = ExtResource("2_qygcd")
 text = "[wave amp=122 freq=3]!!![/wave]"
 font = ExtResource("2_eujqu")
@@ -143,7 +150,7 @@ transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0,
 transform = Transform3D(5, 1.4901161e-07, 1.4901161e-07, -1.4901161e-07, 5, -4.440892e-15, -1.4901161e-07, 0, 5, -0.7940426, 6.690464, 0.71939087)
 script = ExtResource("5_ut8mm")
 wrap_size = 360.0
-text_font = ExtResource("6_trlnv")
+text_font = SubResource("FontVariation_btyb2")
 text_size = 24
 metadata/_custom_type_script = "uid://w3djedfesukg"
 
@@ -156,14 +163,13 @@ shape = SubResource("BoxShape3D_tnskl")
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 62.20112, 2.3096619, 15.671444)
 
 [node name="Player" parent="SubViewport" unique_id=197177369 groups=["Player"] instance=ExtResource("3_45idv")]
-transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 0.21429443, 2.3149529, 85.35332)
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 7.945984, 1.4889641, 85.35332)
 
 [node name="Player_SpeechBubble_1" type="Node3D" parent="SubViewport/Player" unique_id=1819530175]
 transform = Transform3D(1, -2.646978e-23, 0, -2.646978e-23, 1, 0, 0, 0, 1, 0, 7.6582365, 0)
 script = ExtResource("5_ut8mm")
 wrap_size = 360.0
-text_font = ExtResource("10_3pjj1")
-text_size = 18
+text_font = SubResource("FontVariation_4144n")
 metadata/_custom_type_script = "uid://w3djedfesukg"
 
 [node name="Cam_Rig" type="Node3D" parent="SubViewport/Player" unique_id=605566289]

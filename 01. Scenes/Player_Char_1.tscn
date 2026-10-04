@@ -40,16 +40,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_aix0w"]
-margin = 0.0
-size = Vector3(3.416748, 12.324463, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
+size = Vector3(2.6981812, 11.751221, 1.531311)
 
 [node name="Player" type="CharacterBody3D" unique_id=197177369]
-transform = Transform3D(0.15, -4.4703485e-09, -4.4703485e-09, 4.4703485e-09, 0.15, 0, 4.4703485e-09, -1.3322677e-16, 0.15, 0, 0, 0)
 script = ExtResource("1_wv7rr")
 
 [node name="Player_AnimSprite" type="AnimatedSprite3D" parent="." unique_id=1520273345]
-transform = Transform3D(0.99999994, -2.6469778e-23, 0, -2.6469778e-23, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 billboard = 2
 shaded = true
 alpha_cut = 2
@@ -57,6 +54,6 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_tnskl")
 animation = &"back"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1912880881]
-transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -0.12609859, 0.11718737, 0)
-shape = SubResource("BoxShape3D_aix0w")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2074937142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22592163, -0.37561035, -0.6473694)
+shape = SubResource("BoxShape3D_tnskl")
