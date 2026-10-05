@@ -82,10 +82,12 @@ texture = SubResource("ViewportTexture_3pjj1")
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1454758230]
 use_debanding = true
 use_occlusion_culling = true
+mesh_lod_threshold = 0.0
 scaling_3d_mode = 5
 scaling_3d_scale = 0.5
 anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
+positional_shadow_atlas_size = 6000
 size = Vector2i(1920, 1080)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="SubViewport" unique_id=978658958]

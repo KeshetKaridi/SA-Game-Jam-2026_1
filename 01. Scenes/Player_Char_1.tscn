@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
-size = Vector3(2.6981812, 11.751221, 1.531311)
+size = Vector3(2.698, 12.664, 1.531)
 
 [node name="Player" type="CharacterBody3D" unique_id=197177369]
 script = ExtResource("1_wv7rr")
@@ -55,5 +55,4 @@ sprite_frames = SubResource("SpriteFrames_tnskl")
 animation = &"back"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2074937142]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22592163, -0.37561035, -0.6473694)
 shape = SubResource("BoxShape3D_tnskl")
