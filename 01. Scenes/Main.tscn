@@ -65,8 +65,8 @@ gradient = SubResource("Gradient_btyb2")
 width = 256
 height = 256
 use_hdr = true
-fill_from = Vector2(0.03846154, 0.974359)
-fill_to = Vector2(1, 0.021367522)
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.75641024, 0.30769232)
 
 [node name="Main" type="Node3D" unique_id=815362948]
 script = ExtResource("1_trlnv")
@@ -95,7 +95,9 @@ transform = Transform3D(-0.008566356, -0.98732305, 0.15849233, -0.053286072, 0.1
 light_color = Color(1, 0.13786113, 0.49102628, 1)
 light_size = 0.363
 shadow_enabled = true
-shadow_blur = 2.1
+shadow_bias = 0.104
+shadow_normal_bias = 0.052
+shadow_opacity = 0.85
 area_range = 62.478
 area_attenuation = -0.287
 area_size = Vector2(11, 11)
@@ -165,7 +167,7 @@ shape = SubResource("BoxShape3D_tnskl")
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 62.20112, 2.3096619, 15.671444)
 
 [node name="Player" parent="SubViewport" unique_id=197177369 groups=["Player"] instance=ExtResource("3_45idv")]
-transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 7.945984, 1.4889641, 85.35332)
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 7.945984, 1.1734123, 85.35332)
 
 [node name="Player_SpeechBubble_1" type="Node3D" parent="SubViewport/Player" unique_id=1819530175]
 transform = Transform3D(1, -2.646978e-23, 0, -2.646978e-23, 1, 0, 0, 0, 1, 0, 7.6582365, 0)
@@ -192,14 +194,16 @@ environment = ExtResource("6_45idv")
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, -7.2182617, 0.90737975, 53.010254)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1279147373]
-transform = Transform3D(-0.089602314, -0.99415386, -0.060247093, 0.11885198, -0.070731014, 0.99038965, -0.98886085, 0.081580706, 0.124494806, 19.726088, 88.09429, 64.921036)
+transform = Transform3D(-0.88110006, -0.46736157, 0.07235901, 0.118852034, -0.07073097, 0.99038947, -0.45775193, 0.8812323, 0.11786793, -8.038988, 114.76879, 103.32182)
 light_color = Color(0.6272865, 0.5344483, 0.40886667, 1)
-light_energy = 0.167
 light_projector = SubResource("GradientTexture2D_4144n")
 light_specular = 0.0
 shadow_enabled = true
-shadow_bias = 0.191
-shadow_blur = 0.208
+shadow_reverse_cull_face = true
+shadow_blur = 2.458
+distance_fade_begin = 1362.66
+distance_fade_shadow = 490.67
+distance_fade_length = 1055.33
 spot_range = 134.623
 spot_attenuation = -0.78
 spot_angle = 28.9
