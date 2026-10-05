@@ -181,7 +181,7 @@ text_size = 33
 metadata/_custom_type_script = "uid://w3djedfesukg"
 
 [node name="NPC_1" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
-transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 0.6475258, 1.1978042, -7.5628586)
+transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 63.807, 2.008, 17.305)
 
 [node name="NPC1_SpeechBubble" type="Node3D" parent="SubViewport/NPC_1" unique_id=2037199942]
 transform = Transform3D(1, 2.9802322e-08, 2.9802322e-08, -2.9802322e-08, 1, -8.881784e-16, -2.9802322e-08, 0, 1, -0.7940426, 6.690464, 0.71939087)

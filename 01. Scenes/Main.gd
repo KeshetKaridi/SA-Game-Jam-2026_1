@@ -89,12 +89,7 @@ func _process(delta: float) -> void:
 func NPC1_Area_Entered_(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("Player"):
 		NPC_1_Listen = true
-	
-	
-		
-				
-				
-	
+
 	#pass # Replace with function body.
 
 
