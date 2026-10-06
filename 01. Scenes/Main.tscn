@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://uwc02fpor3q2" path="res://01. Scenes/NPCs/npc_1.tscn" id="3_rdpjm"]
 [ext_resource type="Script" uid="uid://w3djedfesukg" path="res://addons/speechbubble3d/speech_bubble.gd" id="5_ut8mm"]
 [ext_resource type="Environment" uid="uid://ccnmbtuh0ed3e" path="res://03. Assets/Environments/Env_2.tres" id="6_45idv"]
-[ext_resource type="FontFile" uid="uid://cm713cl68rv56" path="res://03. Assets/Fonts/SpaceGrotesk-VariableFont_wght.ttf" id="7_btyb2"]
+[ext_resource type="FontVariation" uid="uid://bdc5xrsyqvr8f" path="res://03. Assets/Fonts/SpeechBubble_Font.tres" id="6_btyb2"]
 [ext_resource type="PackedScene" uid="uid://dinbgrt2mpijt" path="res://01. Scenes/NPCs/Cat_1.tscn" id="7_rdpjm"]
+[ext_resource type="FontFile" uid="uid://u6tjn8a3qa08" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff" id="9_btyb2"]
 [ext_resource type="PackedScene" uid="uid://bsipmfypsqjto" path="res://01. Scenes/Terrain_V9.scn" id="13_3pjj1"]
 [ext_resource type="PackedScene" uid="uid://7sxybau7m20f" path="res://01. Scenes/NPCs/npc_3.tscn" id="13_btyb2"]
 [ext_resource type="FontFile" uid="uid://b47emmcndjilu" path="res://03. Assets/Fonts/3DIsometric_Font_1_14/Web Open Font Format (.woff)/3DIsometric-Black.woff2" id="14_btyb2"]
@@ -56,16 +57,36 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdken"]
 size = Vector3(17.182617, 6.9213867, 27.604767)
 
-[sub_resource type="FontVariation" id="FontVariation_4144n"]
-base_font = ExtResource("7_btyb2")
-variation_embolden = 1.0
-
-[sub_resource type="FontVariation" id="FontVariation_btyb2"]
-base_font = ExtResource("7_btyb2")
-variation_embolden = 2.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnskl"]
 size = Vector3(11, 11, 11)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uxmck"]
+size = Vector3(15, 15, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btyb2"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4144n"]
+size = Vector2(7, 5)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s50c"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0h0ry"]
+size = Vector2(14, 10)
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_te4u1"]
+size = Vector3(15, 13, 15)
 
 [sub_resource type="Gradient" id="Gradient_btyb2"]
 offsets = PackedFloat32Array(0.5, 0.65178573)
@@ -143,7 +164,7 @@ material_override = SubResource("StandardMaterial3D_3pjj1")
 mesh = SubResource("PlaneMesh_btyb2")
 script = ExtResource("2_qygcd")
 text = "[wave amp=32 freq=3]Press 
-E 
+(E)
 to Interact[/wave]"
 font = ExtResource("14_btyb2")
 font_size = 41
@@ -176,28 +197,71 @@ shape = SubResource("BoxShape3D_qdken")
 transform = Transform3D(1, -2.646978e-23, 0, -2.646978e-23, 1, 0, 0, 0, 1, -4.3377686, 7.5044303, 4.845886)
 script = ExtResource("5_ut8mm")
 wrap_size = 444.0
-text_font = SubResource("FontVariation_4144n")
+text_font = ExtResource("6_btyb2")
 text_size = 33
 metadata/_custom_type_script = "uid://w3djedfesukg"
 
-[node name="NPC_1" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
+[node name="soldier" parent="SubViewport" unique_id=1171066410 instance=ExtResource("3_rdpjm")]
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 63.807, 2.008, 17.305)
 
-[node name="NPC1_SpeechBubble" type="Node3D" parent="SubViewport/NPC_1" unique_id=2037199942]
+[node name="soldier_SpeechBubble" type="Node3D" parent="SubViewport/soldier" unique_id=2037199942]
 transform = Transform3D(1, 2.9802322e-08, 2.9802322e-08, -2.9802322e-08, 1, -8.881784e-16, -2.9802322e-08, 0, 1, -0.7940426, 6.690464, 0.71939087)
 script = ExtResource("5_ut8mm")
 wrap_size = 360.0
-text_font = SubResource("FontVariation_btyb2")
-text_size = 24
+text_font = ExtResource("6_btyb2")
+text_size = 33
 metadata/_custom_type_script = "uid://w3djedfesukg"
 
-[node name="Area3D" type="Area3D" parent="SubViewport/NPC_1" unique_id=477333971]
+[node name="Area3D" type="Area3D" parent="SubViewport/soldier" unique_id=477333971]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/NPC_1/Area3D" unique_id=1393826481]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/soldier/Area3D" unique_id=1393826481]
 shape = SubResource("BoxShape3D_tnskl")
 
 [node name="Doctor" parent="SubViewport" unique_id=1715919629 instance=ExtResource("2_45idv")]
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 62.20112, 2.3096619, 15.671444)
+
+[node name="Doc_SpeechBubble" type="Node3D" parent="SubViewport/Doctor" unique_id=1093930056]
+script = ExtResource("5_ut8mm")
+wrap_size = 360.0
+text_font = ExtResource("6_btyb2")
+text_size = 33
+metadata/_custom_type_script = "uid://w3djedfesukg"
+
+[node name="Doc_HidingArea" type="Area3D" parent="SubViewport/Doctor" unique_id=437814506]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -19.004791, 4.7683716e-07, 57.04633)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Doctor/Doc_HidingArea" unique_id=1138659924]
+shape = SubResource("BoxShape3D_uxmck")
+
+[node name="doc_Alert_Mark" type="MeshInstance3D" parent="SubViewport/Doctor" unique_id=1494109344]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -10.14, -1.19, 55.529)
+material_override = SubResource("StandardMaterial3D_btyb2")
+mesh = SubResource("PlaneMesh_4144n")
+script = ExtResource("2_qygcd")
+text = "[wave amp=32 freq=3]![/wave]"
+font = ExtResource("9_btyb2")
+font_size = 333
+size = Vector2(7, 5)
+text_width = 595.0
+render_continuously = true
+billboard_mode = 1
+metadata/_custom_type_script = "uid://cofw7sywoopgu"
+
+[node name="doc_Eavesdrop_Tooltip" type="MeshInstance3D" parent="SubViewport/Doctor" unique_id=1796269289]
+transform = Transform3D(0.99999976, -2.6469773e-23, 0, -2.6469773e-23, 0.99999976, 0, 0, 0, 0.99999976, -20.013, 10.55, 67.36)
+material_override = SubResource("StandardMaterial3D_4s50c")
+mesh = SubResource("PlaneMesh_0h0ry")
+script = ExtResource("2_qygcd")
+text = "[wave amp=32 freq=3]Press 
+(E) 
+to Eavesdrop[/wave]"
+font = ExtResource("9_btyb2")
+font_size = 42
+size = Vector2(14, 10)
+text_width = 575.0
+render_continuously = true
+billboard_mode = 1
+metadata/_custom_type_script = "uid://cofw7sywoopgu"
 
 [node name="Player" parent="SubViewport" unique_id=197177369 groups=["Player"] instance=ExtResource("3_45idv")]
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, 8.25354, 1.1734123, 102.91399)
@@ -206,7 +270,7 @@ transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0,
 transform = Transform3D(1, 2.646978e-23, 0, -2.646978e-23, 1, 0, 0, 0, 1, 0, 7.6582365, 0)
 script = ExtResource("5_ut8mm")
 wrap_size = 444.0
-text_font = SubResource("FontVariation_4144n")
+text_font = ExtResource("6_btyb2")
 text_size = 33
 metadata/_custom_type_script = "uid://w3djedfesukg"
 
@@ -226,8 +290,21 @@ far = 164.32
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=623589911]
 environment = ExtResource("6_45idv")
 
-[node name="NPC_2" parent="SubViewport" unique_id=503061790 instance=ExtResource("13_btyb2")]
+[node name="PinkHairNPC" parent="SubViewport" unique_id=503061790 instance=ExtResource("13_btyb2")]
 transform = Transform3D(0.3, -8.940697e-09, -8.940697e-09, 8.940697e-09, 0.3, 0, 8.940697e-09, -2.6645354e-16, 0.3, -7.2182617, 0.90737975, 53.010254)
+
+[node name="PinkHairNPC_Area" type="Area3D" parent="SubViewport/PinkHairNPC" unique_id=684316960]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/PinkHairNPC/PinkHairNPC_Area" unique_id=1921292922]
+shape = SubResource("BoxShape3D_te4u1")
+
+[node name="pinkhairNPC_speechbubble3D" type="Node3D" parent="SubViewport/PinkHairNPC" unique_id=1036298115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63, 1.94, -1.21)
+script = ExtResource("5_ut8mm")
+wrap_size = 366.0
+text_font = ExtResource("6_btyb2")
+text_size = 33
+metadata/_custom_type_script = "uid://w3djedfesukg"
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1279147373]
 transform = Transform3D(-0.88110006, -0.46736157, 0.07235901, 0.118852034, -0.07073097, 0.99038947, -0.45775193, 0.8812323, 0.11786793, -8.038988, 114.76879, 103.32182)
@@ -248,4 +325,9 @@ spot_angle = 28.9
 transform = Transform3D(0.8191522, 0, 0.5735765, 0, 1, 0, -0.5735765, 0, 0.8191522, 10.884346, 0.036499977, 48.201847)
 
 [connection signal="body_entered" from="SubViewport/Cat_1/Area3D" to="." method="_Cat_On_Area_Entered"]
-[connection signal="body_shape_entered" from="SubViewport/NPC_1/Area3D" to="." method="NPC1_Area_Entered_"]
+[connection signal="body_exited" from="SubViewport/Cat_1/Area3D" to="." method="_on_cat_area_exited"]
+[connection signal="body_shape_entered" from="SubViewport/soldier/Area3D" to="." method="NPC1_Area_Entered_"]
+[connection signal="body_entered" from="SubViewport/Doctor/Doc_HidingArea" to="." method="_on_doc_area_entered"]
+[connection signal="body_exited" from="SubViewport/Doctor/Doc_HidingArea" to="." method="_on_doc_area_exited"]
+[connection signal="body_entered" from="SubViewport/PinkHairNPC/PinkHairNPC_Area" to="." method="_pinkhairNPC_area_entered"]
+[connection signal="body_exited" from="SubViewport/PinkHairNPC/PinkHairNPC_Area" to="." method="pinkhairNPC_area_Exited"]
